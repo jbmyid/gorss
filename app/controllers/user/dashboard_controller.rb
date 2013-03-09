@@ -1,4 +1,5 @@
-class User::DashboardController < ApplicationController
+class User::DashboardController < User::BaseController
   def index
+  	@feeds = Feed.limit(10)
   end
 end

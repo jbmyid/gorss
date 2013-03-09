@@ -1,10 +1,10 @@
 require 'net/http'
 require 'sax-machine'
 require 'rexml/document'
-require 'nokogiri'
+# require 'nokogiri'
 require 'open-uri'
 
-module RssFeed
+module RssParser
   class MediaContent
     include SAXMachine
     attribute :url

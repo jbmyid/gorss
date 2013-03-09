@@ -1,2 +1,7 @@
-<h1>User::Dashboard#index</h1>
-<p>Find me in app/views/user/dashboard/index.html.erb</p>
+<% @feeds.each do |f|%>
+	<div class="rss-feed-block blue-feed">
+		<% entry = f.data %>
+		<h5><%= entry.title %></h5>
+		<p> <%= entry.description.html_safe %></p>
+	</div>
+<% end %>

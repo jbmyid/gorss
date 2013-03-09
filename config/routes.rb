@@ -4,7 +4,13 @@ GoRss::Application.routes.draw do
   devise_for :admin
 
   namespace :admin do
-    resources :feed_urls
+    resources :feed_urls do
+      member do
+        get :activate
+        get :deactivate
+      end
+    end
+
   end
 
   namespace :user do 

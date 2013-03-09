@@ -1,0 +1,13 @@
+.rss-feed-block
+{
+	display: block;
+	margin: 5px;
+	padding: 5px;
+	float: left;
+	box-shadow: 1px 2px 3px #D2D5D7;
+}
+.blue-feed
+{
+	background: #F3F8FE;
+	color: #2D87C8;
+}

@@ -76,8 +76,23 @@ class Admin::FeedUrlsController < Admin::BaseController
     @feed_url.destroy
 
     respond_to do |format|
-      format.html { redirect_to feed_urls_url }
+      format.html { redirect_to admin_feed_urls_url }
       format.json { head :no_content }
     end
+  end
+
+  def activate
+    @feed_url = FeedUrl.find(params[:id])
+    @feed_url.activate
+    redirect_to admin_feed_urls_path
+
+  end
+
+
+  def deactivate
+    @feed_url = FeedUrl.find(params[:id])
+    @feed_url.deactivate
+    redirect_to admin_feed_urls_path
+
   end
 end

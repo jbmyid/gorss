@@ -7,8 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:url) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,12 +17,19 @@
       <tr>
         <td><%= link_to feed_url.id, admin_feed_url_path(feed_url) %></td>
         <td><%= feed_url.title %></td>
-        <td><%= feed_url.url %></td>
-        <td><%= feed_url.description %></td>
+        <td><%= feed_url.status %></td>
         <td><%=l feed_url.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
+          <% if feed_url.pending? %>
+            <%= link_to t('.activate', :default => t("helpers.links.activate")),
+                      activate_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
+          <% else %>
+            <%= link_to t('.deactivate', :default => t("helpers.links.deactivate")),
+                      deactivate_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
+          <% end %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_feed_url_path(feed_url),
                       :method => :delete,
