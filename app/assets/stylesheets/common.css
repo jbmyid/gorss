@@ -4,8 +4,8 @@
 	margin: 10px;
 	padding: 5px;
 	float: left;
-	box-shadow: 5px 3px 3px #D2D5D7;
-	border-radius: 5px;
+	/*box-shadow: 5px 3px 3px #D2D5D7;*/
+	/*border-radius: 5px;*/
 	width: 220px;
 }
 /*.blue-feed
@@ -15,22 +15,34 @@
 }*/
 .small{
 	/*width: 200px;*/
-	background: #F3F8FE;
-	color: #2D87C8;
+	/*background: #F3F8FE;
+	color: #2D87C8;*/
+	background: #00B2F0;
+	color: #FFF;
+}
+body{
+	background: #240040 !important;
 }
 .medium{
 	/*width: 300px;*/
-	background: #FAE6F4;
-	color: #FA63CA;	
+/*	background: #FAE6F4;
+	color: #FA63CA;*/	
+	/*background: #4E0088;*/
+	background: #019F02;
+	color: #FFF;
 }
 .large{
 	/*width: 400px;*/
-	background: #FCF7CB ;
-	color: #484101 ;
+	/*background: #FCF7CB ;*/
+	background: #D84F2B;
+	/*color: #484101 ;*/
+	color: #FFF;
 }
 .feed-image{
 	padding: 10px;
 	/*border: 1px solid #D4D4D4;*/
+	background: rgba(0,0,0,0.1);
+	border-radius: 5px 5px 0 0 ;
 
 }
 .feed-image > img

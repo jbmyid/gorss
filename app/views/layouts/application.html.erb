@@ -50,20 +50,26 @@
           </a>
           <a class="brand" href="#">GoRss</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "My Account", "/path1"  %></li>
-              <li><%= link_to "Rss Feed Manager", "/path2"  %></li>
-              <li><%= link_to "Dashboard", "/path3"  %></li>
-            </ul>
+            <% if user_signed_in? %>
+              <ul class="nav">
+                <li><%= link_to "My Account", "/path1"  %></li>
+                <li><%= link_to "Rss Feed Manager", "/path2"  %></li>
+                <li><%= link_to "Dashboard", "/path3"  %></li>
+              </ul>
+            <% end %>
 
             <div class="btn-group pull-right">
-              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                <%= current_user.email %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
-              </ul>
+              <% if user_signed_in? %>
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <%= current_user.email %>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+                </ul>
+              <% else%>
+                <%= link_to "Sign In", new_user_session_path, class: "btn" %>
+              <% end %>
             </div>
           </div><!--/.nav-collapse -->
         </div>
