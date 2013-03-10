@@ -5,6 +5,40 @@
 <script type="text/javascript">
 	$(function(){
 		apply_masonry();
+
+
+		//loading 
+		var page = 1,
+	  loading = false,
+	  finish = false;
+
+	  function nearBottomOfPage() {
+	    return $(window).scrollTop() > $(document).height() - $(window).height() - 50;
+	  }
+
+	  function finish() {
+	    finish = true;
+	  }
+
+	  $(window).scroll(function(){
+	    if (loading) {
+	      return;
+	    }
+
+	    if(nearBottomOfPage() && !finish) {
+	      loading=true;
+	      page++;
+	      $.ajax({
+	        url: '?page=' + page,
+	        type: 'get',
+	        dataType: 'script',
+	        success: function() {
+	        	$('#feed-container').masonry('reload')
+	          loading=false;
+	        }
+	      });
+	    }
+	  });
 	})
 </script>
 
