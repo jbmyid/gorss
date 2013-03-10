@@ -1,6 +1,6 @@
 GoRss::Application.routes.draw do
 
-  devise_for :users, controllers: {sessions: "user/sessions"} do
+  devise_for :users, controllers: {sessions: "user/sessions", registrations: "user/registrations"} do
     match "/login"=> "user/sessions#new"
   end
 

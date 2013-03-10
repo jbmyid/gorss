@@ -23,6 +23,7 @@
 body{
 	background: #240040 !important;
 }
+
 .medium{
 	/*width: 300px;*/
 /*	background: #FAE6F4;
@@ -66,3 +67,11 @@ body{
 	background: 
 }*/
 .clear {clear: both;display: block;}
+.signup-box
+{
+	display: block;
+	width: 400px;
+	padding: 20px;
+	color: #FFF;
+	text-align: left;
+}
