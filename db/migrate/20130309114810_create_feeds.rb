@@ -1,6 +1,7 @@
 class CreateFeeds < ActiveRecord::Migration
   def change
     create_table :feeds do |t|
+    	t.string :guid
       t.text :data
       t.references :feed_url
 

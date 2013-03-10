@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130309114810) do
   end
 
   create_table "feeds", :force => true do |t|
+    t.string   "guid"
     t.text     "data"
     t.integer  "feed_url_id"
     t.datetime "created_at",  :null => false

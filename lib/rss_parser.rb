@@ -82,7 +82,7 @@ module RssParser
     element :id, :as=> :entry_id
     
     def media_image
-      (@media_content && @media_content =~ /(jpg|jpeg|tiff|png)$/i) ? @media_content : nil
+      (@media_content && @media_content =~ /.(jpg|jpeg|tiff|png)/i) ? @media_content : nil
     end
   end
 

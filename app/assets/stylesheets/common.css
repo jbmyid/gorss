@@ -5,9 +5,33 @@
 	padding: 5px;
 	float: left;
 	box-shadow: 1px 2px 3px #D2D5D7;
+	width: 220px;
 }
-.blue-feed
+/*.blue-feed
 {
 	background: #F3F8FE;
 	color: #2D87C8;
+}*/
+.small{
+	/*width: 200px;*/
+	background: #F3F8FE;
+	color: #2D87C8;
+}
+.medium{
+	/*width: 300px;*/
+	background: #FAE6F4;
+	color: #FA63CA;	
+}
+.large{
+	/*width: 400px;*/
+	background: #FCF7CB ;
+	color: #484101 ;
+}
+.feed-image{
+	padding: 10px;
+	border: 1px solid #D4D4D4;
+}
+.feed-image > img
+{
+	width: 200px !important;
 }

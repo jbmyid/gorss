@@ -1,7 +1,10 @@
-<% @feeds.each do |f|%>
-	<div class="rss-feed-block blue-feed">
-		<% entry = f.data %>
-		<h5><%= entry.title %></h5>
-		<p> <%= entry.description.html_safe %></p>
-	</div>
-<% end %>
+<div id="feed-container" class: "row">
+	<%= render "user/shared/feeds", feeds: @feeds %>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		apply_masonry();
+	})
+</script>
+

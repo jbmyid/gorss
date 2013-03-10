@@ -1,7 +1,12 @@
 GoRss::Application.routes.draw do
 
-  devise_for :users, controllers: {sessions: "user/sessions"}
-  devise_for :admin
+  devise_for :users, controllers: {sessions: "user/sessions"} do
+    match "/login"=> "user/sessions#new"
+  end
+
+  devise_for :admin, controllers: {sessions: "admin/sessions"} do
+    match "/admin" => "admin/sessions#new"
+  end
 
   namespace :admin do
     resources :feed_urls do

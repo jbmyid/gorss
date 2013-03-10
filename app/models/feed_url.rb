@@ -4,7 +4,7 @@ class FeedUrl < ActiveRecord::Base
 
   attr_accessible :description, :title, :url
   validates :url, uniqueness: true, presence: true, format: /http?:\/\/[\S]+/
-  validates :status, inclusion: {in: STATUSES.map{|i,v| v}}
+  # validates :status, inclusion: {in: STATUSES.map{|i,v| v}}
   
   before_create :parse_rss
   # validate :parsable?
@@ -30,10 +30,14 @@ class FeedUrl < ActiveRecord::Base
 
   def generate_feed
   	feed = RssParser::RssFeed.parse_rss_url(url)
-  	feed.entries.each do |e|
-  		feeds.build(data: e)
-  	end
-  	save
+    if feed
+    	feed.entries.each do |e|
+        old_f = feeds.where("guid=?",(e.entry_id || e.link)).first
+    		new_f = feeds.build(data: e) unless old_f
+        new_f.save if new_f
+    	end
+    	# save
+    end
   end
 
   private

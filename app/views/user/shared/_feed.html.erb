@@ -1,0 +1,12 @@
+<div class="rss-feed-block blue-feed <%= feed_class(feed) %>">
+	<% entry = feed.data %>
+	<% if entry.media_image %>
+		<div class="feed-image">
+			<%#= entry.media_image.gsub(/\?(.*)/,"") %>
+			<%= image_tag entry.media_image.gsub(/\?(.*)/,"") %>
+		</div>
+	<% end %>
+	<h5><%= entry.title %></h5>
+	<p> <%= entry.description.html_safe %></p>
+	<%#= entry.description.length %>
+</div>
