@@ -55,6 +55,16 @@
               <li><%= link_to "Rss Feed Manager", "/path2"  %></li>
               <li><%= link_to "Dashboard", "/path3"  %></li>
             </ul>
+
+            <div class="btn-group pull-right">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user.email %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+              </ul>
+            </div>
           </div><!--/.nav-collapse -->
         </div>
       </div>
