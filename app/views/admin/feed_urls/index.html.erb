@@ -28,6 +28,7 @@
           <% else %>
             <%= link_to t('.deactivate', :default => t("helpers.links.deactivate")),
                       deactivate_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
+            <%= link_to "Generate Feed", generate_feeds_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
           <% end %>
 
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

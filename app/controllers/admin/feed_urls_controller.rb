@@ -95,4 +95,10 @@ class Admin::FeedUrlsController < Admin::BaseController
     redirect_to admin_feed_urls_path
 
   end
+
+  def generate_feeds
+    @feed_url = FeedUrl.find(params[:id])
+    @feed_url.generate_feed
+    redirect_to admin_feed_urls_path
+  end
 end

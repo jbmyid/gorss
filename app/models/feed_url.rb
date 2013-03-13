@@ -40,6 +40,23 @@ class FeedUrl < ActiveRecord::Base
     end
   end
 
+  def self.generate_all_feeds
+    objs = []
+    urls = FeedUrl.where("status=?",STATUSES[:active])
+    urls.each do |u|
+      feed = RssParser::RssFeed.parse_rss_url(u.url)
+      feed.entries.each do |e|
+        old_f = Feed.where("guid=?",(e.entry_id || e.link)).first
+        new_f = u.feeds.build(data: e) unless old_f
+        objs << new_f if new_f
+      end
+    end
+    objs.shuffle!
+    objs.each do |f|
+      f.save
+    end
+  end
+
   private
 
   def parse_rss

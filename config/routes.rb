@@ -13,6 +13,7 @@ GoRss::Application.routes.draw do
       member do
         get :activate
         get :deactivate
+        get :generate_feeds
       end
     end
 
@@ -20,6 +21,14 @@ GoRss::Application.routes.draw do
 
   namespace :user do 
     resources :dashboard, only: [:index]
+    resources :feed_urls do 
+      member do
+        get :generate_feeds
+      end
+      collection do
+        get :generate_all_feeds
+      end
+    end
   end
 
   get "home/index"
