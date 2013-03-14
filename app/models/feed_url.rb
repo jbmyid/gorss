@@ -10,7 +10,7 @@ class FeedUrl < ActiveRecord::Base
   # validate :parsable?
 
   has_many :feeds
-  has_many :user_feed_url
+  has_many :user_feed_url, dependent: :destroy
   has_many :users, through: :user_feed_url
 
   STATUSES.each do |method_name, value|
