@@ -50,11 +50,11 @@
           </a>
           <a class="brand" href="#">GoRss</a>
           <div class="container-fluid nav-collapse">
-            <% if user_signed_in? %>
+            <% if current_user %>
               <ul class="nav">
-                <li><%= link_to "My Account", "/path1"  %></li>
-                <li><%= link_to "Rss Feed Manager", "/path2"  %></li>
-                <li><%= link_to "Dashboard", "/path3"  %></li>
+                <!-- <li><%= link_to "My Account", "/path1"  %></li> -->
+                <li><%= link_to "Rss Feed Manager", user_feed_urls_path %></li>
+                <li><%= link_to "Dashboard", user_dashboard_index_path  %></li>
               </ul>
             <% end %>
 

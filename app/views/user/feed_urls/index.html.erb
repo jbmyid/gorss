@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Feed Urls</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @feed_urls.each do |feed_url| %>
+      <tr>
+        <td><%= feed_url.title %></td>
+        <td><%= feed_url.status %></td>
+        <td>
+          <% unless feed_url.pending? %>
+            <% if feed_url.subscribed_by?(current_user) %>
+              <%= link_to "Unsubscribe", unsubscribe_user_feed_url_path(feed_url), :class => 'btn btn-mini  btn-danger', remote: true %>
+              <%= link_to "Generate Feed", generate_feeds_user_feed_url_path(feed_url), :class => 'btn btn-mini' %>
+            <% else %>
+              <%= link_to "Subscribe", subscribe_user_feed_url_path(feed_url), :class => 'btn btn-mini', remote: true %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
