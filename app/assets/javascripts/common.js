@@ -11,7 +11,7 @@ function apply_masonry()
     // columnWidth: 100
   });
 }
-$(function(){
+function image_loading_callback(){
   $(".feed-image img.f-img").load(function(){
       $(this).show();
       $(this).closest(".feed-image").find(".image-loading").hide();
@@ -19,4 +19,7 @@ $(function(){
   $("img").load(function(){
       $('#feed-container').masonry('reload');
   })
+}
+$(function(){
+  image_loading_callback();
 })
