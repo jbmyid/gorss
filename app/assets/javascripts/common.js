@@ -11,3 +11,12 @@ function apply_masonry()
     // columnWidth: 100
   });
 }
+$(function(){
+  $(".feed-image img.f-img").load(function(){
+      $(this).show();
+      $(this).closest(".feed-image").find(".image-loading").hide();
+  })
+  $("img").load(function(){
+      $('#feed-container').masonry('reload');
+  })
+})

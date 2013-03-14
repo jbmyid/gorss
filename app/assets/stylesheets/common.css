@@ -21,7 +21,7 @@
 	color: #FFF;
 }
 body{
-	background: #240040 !important;
+	/*background: #240040 !important;*/
 }
 
 .medium{
@@ -74,4 +74,10 @@ body{
 	padding: 20px;
 	color: #FFF;
 	text-align: left;
+}
+.image-loading
+{
+	display: block;
+	width: 200px !important;
+	border-radius: 5px 5px  0 0;
 }
