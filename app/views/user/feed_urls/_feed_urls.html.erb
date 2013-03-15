@@ -1,0 +1,18 @@
+<div>
+  <ul class="win8-menu">
+    <% feed_urls.each do |feed_url| %>
+      <li class="all-feed-url">
+        <%= feed_url.title %> 
+        <% unless feed_url.pending? %>
+            <% if feed_url.subscribed_by?(current_user) %>
+              <%= link_to content_tag(:i, "", class:"icon-refresh"), generate_feeds_user_feed_url_path(feed_url) %>
+              <%= link_to content_tag(:i, "", class:"icon-remove danger"), unsubscribe_user_feed_url_path(feed_url), class: "danger"%>
+            <% else %>
+              <%= link_to content_tag(:i, "", class:"icon-magnet danger"), subscribe_user_feed_url_path(feed_url),title:"Subscribe",  remote: true %>
+            <% end %>
+          <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

@@ -27,7 +27,12 @@ class User::FeedUrlsController < User::BaseController
 
   def generate_all_feeds
   	FeedUrl.generate_all_feeds
-  	redirect_to user_dashboard_index_path
+    respond_to do |format|
+  	 format.html{redirect_to user_dashboard_index_path}
+     format.js do 
+        @feeds = current_user.subscribed_feeds.order("created_at DESC").limit(20)
+     end
+    end
   end
 
   private
