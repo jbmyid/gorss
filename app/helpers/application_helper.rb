@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def feed_class(feed)
-		case feed.data.description.length
+		case Sanitize.clean(feed.data.description).length
 		when 10..600
 			"small"
 		when 600..1000

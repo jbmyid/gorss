@@ -22,7 +22,7 @@ class FeedUrl < ActiveRecord::Base
 
   def activate
   	self.status= STATUSES[:active]
-  	save
+  	save!
   end
 
   def deactivate
