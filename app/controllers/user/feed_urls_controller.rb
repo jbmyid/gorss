@@ -11,7 +11,7 @@ class User::FeedUrlsController < User::BaseController
 
 	def generate_feeds
     @feed_url.generate_feed
-    redirect_to user_feed_urls_path
+    redirect_to user_dashboard_index_path
   end
 
   def subscribe
@@ -20,6 +20,9 @@ class User::FeedUrlsController < User::BaseController
 
   def unsubscribe
     current_user.unsubscribe(@feed_url)
+    respond_to do |format|
+      format.html{redirect_to user_dashboard_index_path}
+    end
   end
 
   def generate_all_feeds

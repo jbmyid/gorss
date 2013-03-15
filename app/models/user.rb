@@ -10,7 +10,7 @@ class User < Person
   end
 
   def unsubscribe(feed_url)
-    user_feed_url.find_by_id(feed_url.id).try(:destroy)
+    user_feed_url.find_by_feed_url_id(feed_url.id).try(:destroy)
   end
 
   def generate_feeds
