@@ -1,1 +1,9 @@
-alert("subscribed");
+html = "<%= j(render 'user/shared/feeds', feeds: @feeds) %>";
+$("#feed-container").html(html).masonry('reload');
+image_loading_callback();
+page = 1;
+
+html = "<%= j(render 'side_menu_feed_url', feed_url: @feed_url) %>";
+$(".side-menu .subscribed-rss").append(html);
+add_item($(".side-menu .feed-url-<%= @feed_url.id %>"));
+

@@ -1,1 +1,7 @@
-alert("unsubscribed")
+html = "<%= j(render 'user/shared/feeds', feeds: @feeds) %>";
+$("#feed-container").html(html).masonry('reload');
+image_loading_callback();
+page = 1;
+
+
+remove_item($(".side-menu .feed-url-<%= @feed_url.id %>"));

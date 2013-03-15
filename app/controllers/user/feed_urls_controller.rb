@@ -16,12 +16,21 @@ class User::FeedUrlsController < User::BaseController
 
   def subscribe
     current_user.subscribe(@feed_url)
+    respond_to do |format|
+     format.html{redirect_to user_dashboard_index_path}
+     format.js do 
+        @feeds = current_user.subscribed_feeds.order("created_at DESC").limit(20)
+     end
+    end
   end
 
   def unsubscribe
     current_user.unsubscribe(@feed_url)
     respond_to do |format|
       format.html{redirect_to user_dashboard_index_path}
+      format.js do 
+        @feeds = current_user.subscribed_feeds.order("created_at DESC").limit(20)
+      end
     end
   end
 

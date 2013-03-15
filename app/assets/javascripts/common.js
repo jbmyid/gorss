@@ -35,6 +35,17 @@ function hide_menu_item(item)
   })
 }
 
+function remove_item(item)
+{
+  item.animate({left: "-"+item.width()+"px"},100, function(){
+    $(this).remove();
+  })
+}
+function add_item(item)
+{
+  item.animate({left: "100%"},100);
+}
+
 function show_popup()
 {
   $(".popup").show().animate({left:0}, function(){
