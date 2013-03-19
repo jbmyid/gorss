@@ -135,3 +135,25 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	margin: 5px;
 }
 .popup ul.win8-menu > li {left: -100%;}
+
+.home-page-box{
+	display: block;
+	float: left;
+	width:50%;
+	height: 400px;
+}
+.signup-box
+{
+	margin-top: 50px;
+	display: block;
+	color: black;
+	box-shadow: 1px 1px 3px #86D8F9;
+}
+.error-block{color: red;}
+.forgot-pw-box{
+	margin-top: 50px;
+	display: block;
+	color: black;
+	width:600px;
+	box-shadow: 1px 1px 3px #86D8F9;
+}
