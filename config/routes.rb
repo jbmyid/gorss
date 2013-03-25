@@ -24,6 +24,8 @@ GoRss::Application.routes.draw do
     resources :feed_urls do 
       member do
         get :generate_feeds
+        get :subscribe
+        get :unsubscribe
       end
       collection do
         get :generate_all_feeds

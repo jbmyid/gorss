@@ -10,6 +10,8 @@ class FeedUrl < ActiveRecord::Base
   # validate :parsable?
 
   has_many :feeds
+  has_many :user_feed_url, dependent: :destroy
+  has_many :users, through: :user_feed_url
 
   STATUSES.each do |method_name, value|
 		define_method method_name.to_s+"?" do 
@@ -20,7 +22,7 @@ class FeedUrl < ActiveRecord::Base
 
   def activate
   	self.status= STATUSES[:active]
-  	save
+  	save!
   end
 
   def deactivate
@@ -38,6 +40,10 @@ class FeedUrl < ActiveRecord::Base
     	end
     	# save
     end
+  end
+
+  def subscribed_by?(user)
+    users.find_by_id(user.id)
   end
 
   def self.generate_all_feeds

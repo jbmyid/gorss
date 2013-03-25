@@ -1,31 +1,32 @@
-<div class="span8">
+<div class="home-page-box">
 	<%= image_tag "gorss.png" %>
 </div>
-<div class="span2">
+<div class="home-page-box" align="center">
+  <div class="signup-box">
 	<%= form_for(User.new, :as => User.new , :url => registration_path(User.new), :html => { :class => 'form-horizontal' }) do |f| %>
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'text_area' %>
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'text_area', placeholder: "Enter email address here" %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :password, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.password_field :password, :class => 'text_area' %>
+    <div class="control-group">
+      <%= f.label :password, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'text_area', placeholder: "Enter password here" %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :password_confirmation, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.password_field :password_confirmation, :class => 'text_area' %>
+    <div class="control-group">
+      <%= f.label :password_confirmation, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :class => 'text_area',placeholder: "Please reenter password here" %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-  	<div class="controls">
-    	<%= f.submit "Sign Up", :class => 'btn btn-primary' %>
+    <div class="control-group">
+    	<div class="controls">
+      	<%= f.submit "Sign Up", :class => 'btn btn-primary' %>
+      </div>
     </div>
+  <% end %>
   </div>
-  
-<% end %>
 </div>

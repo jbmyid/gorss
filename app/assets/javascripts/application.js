@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.masonry
+//= require jquery-ui-1.10.2.custom.min
 //= require common
 //= require_tree .

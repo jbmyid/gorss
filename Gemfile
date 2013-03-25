@@ -6,8 +6,7 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-# gem 'pg'
-
+gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,6 +26,7 @@ gem 'sax-machine'
 gem 'nokogiri'
 gem 'devise'
 gem 'cancan'
+gem 'sanitize'
 gem 'kaminari'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

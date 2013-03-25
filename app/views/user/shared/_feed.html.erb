@@ -1,12 +1,16 @@
 <div class="rss-feed-block blue-feed <%= feed_class(feed) %>">
 	<% entry = feed.data %>
 	<% if entry.media_image %>
-		<div class="feed-image">
-			<%= image_tag entry.media_image.gsub(/\?(.*)/,"") %>
+		<div class="feed-image" >
+			<%= image_tag entry.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
+			<div class="image-loading" style="display:block">
+				<%= image_tag "loading.gif" %>
+			</div>
 		</div>
+
 	<% end %>
 	<h5><%= entry.title %></h5>
-	<p> <%= entry.description.html_safe %></p>
+	<p> <%= Sanitize.clean entry.description %></p>
 	<div class="feed-category">
 		<strong class="clear" >Categories</strong>
 		<% entry.categories.each do |b| %>

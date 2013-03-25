@@ -1,0 +1,4 @@
+html = "<%= j(render 'user/shared/feeds', feeds: @feeds) %>";
+$("#feed-container").html(html).masonry('reload');
+image_loading_callback();
+page = 1;
