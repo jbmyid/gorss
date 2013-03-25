@@ -1,8 +1,8 @@
 <div class="rss-feed-block blue-feed <%= feed_class(feed) %>">
 	<% entry = feed.data %>
-	<% if entry.media_image %>
+	<% if feed.media_image %>
 		<div class="feed-image" >
-			<%= image_tag entry.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
+			<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
 			<div class="image-loading" style="display:block">
 				<%= image_tag "loading.gif" %>
 			</div>

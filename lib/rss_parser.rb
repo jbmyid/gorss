@@ -26,7 +26,7 @@ module RssParser
   # Class for parsing an atom entry out of a feedburner atom feed
   class FeedEntry
     include SAXMachine
-    
+    attr_accessor :media_image
     #Title
     element :title
     
