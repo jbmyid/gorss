@@ -61,6 +61,13 @@ function hide_popup()
   })
 }
 
+function overlay()
+{
+  olay = $("<div class='overlay'></div>");
+  olay.css({width: $(window).width()+"px",height: $(window).height()+"px", 'z-index': "99", background: "rgba(128, 128, 128, 0.6)",position: "absolute", top: "0" })
+  $("body").append(olay);
+}
+
 
 $(function(){
   image_loading_callback();
@@ -83,7 +90,10 @@ $(function(){
   })
 
   $(".center-popup .close").live("click", function(){
-    $(this).closest(".center-popup").fadeOut(function(){$(this).remove()});
+    $(".overlay").fadeOut();
+    $(this).closest(".center-popup").fadeOut(function(){$(this).remove();});
   })
+
+
 
 })

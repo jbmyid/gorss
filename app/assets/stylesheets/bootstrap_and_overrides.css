@@ -19,6 +19,7 @@
     height: 300px;
     position: absolute;
     background-color: #019F02;
+    z-index: 100;
   }
   .center-popup .close
   {position: relative;top: 3px;right: 10px;}
