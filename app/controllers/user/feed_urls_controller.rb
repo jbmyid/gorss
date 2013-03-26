@@ -4,6 +4,10 @@ class User::FeedUrlsController < User::BaseController
     @feed_urls = FeedUrl.page(params[:page]).per(10)
   end
 
+  def new
+    @feed_url = FeedUrl.new
+  end
+
   def create
     @feed_url = FeedUrl.new(params[:feed_url])
     @feed_url.save

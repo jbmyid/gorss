@@ -81,4 +81,9 @@ $(function(){
   $(".popup .close-btn").live("click", function(){
     hide_popup();
   })
+
+  $(".center-popup .close").live("click", function(){
+    $(this).closest(".center-popup").fadeOut(function(){$(this).remove()});
+  })
+
 })

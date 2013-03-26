@@ -13,3 +13,17 @@
   }
  	.navbar .nav > li > a, .navbar .brand
   {color: #FFF}
+  .center-popup{
+    display: block;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    background-color: #019F02;
+  }
+  .center-popup .close
+  {position: relative;top: 3px;right: 10px;}
+  .errors{color:red;}
+  .center-popup .content{
+    margin-top:20px;
+    padding: 0 20px;
+  }

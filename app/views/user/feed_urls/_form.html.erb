@@ -1,0 +1,15 @@
+<div id="new_feed_url_div" class="center-popup" style= "height: 100px !important;">
+  <button type="button" class="close" data-dismiss="center-popup">&times;</button>
+  <%= form_for [:user, @feed_url], html:{class: 'form-inline'}, remote: true do |f| %>
+    <div class="span4 error-container">
+
+    </div>
+    <div class="content span4">
+      <div class="input-append row">
+        <%= f.text_field :url, class: "span3" %>
+        <button class="btn" type="submit">Go!</button>
+        <%#= f.submit "Go!", class: "btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
