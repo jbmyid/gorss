@@ -1,6 +1,7 @@
 <% if @feed_url.errors.any? %>
   $("#new_feed_url_div form .error-container").html("<span class='errors'><%= @feed_url.errors.full_messages.join(", ").html_safe %></span>")
 <% else %>
+  $(".overlay").fadeOut();
   $("#new_feed_url_div").fadeOut(function(){$(this).remove()});
 <% end %>
 
