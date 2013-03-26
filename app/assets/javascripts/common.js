@@ -68,8 +68,19 @@ function overlay()
   $("body").append(olay);
 }
 
+function lodding()
+{
+  $(".bottom-loader").show();
+}
+
 
 $(function(){
+
+  $("body").bind('ajax:before', function(){
+    $(".bottom-loader").show();
+  }).bind('ajax:complete', function(){
+    $(".bottom-loader").hide();
+  });
   image_loading_callback();
 
   $(".side-menu").hover(function(){

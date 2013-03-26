@@ -32,7 +32,11 @@
 	        url: '?page=' + page,
 	        type: 'get',
 	        dataType: 'script',
+	        beforeSend:  function(){
+						$(".bottom-loader").show();	        	
+	        },
 	        success: function() {
+	        	$(".bottom-loader").hide();
 	        	$('#feed-container').masonry('reload');
 	          loading=false;
 	        }

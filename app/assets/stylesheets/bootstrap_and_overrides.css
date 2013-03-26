@@ -28,3 +28,14 @@
     margin-top:20px;
     padding: 0 20px;
   }
+  .bottom-loader{border-radius: 5px 5px 0 0;
+    bottom: 0;
+    display: none;
+    height: 60px;
+    padding: 5px;
+    position: fixed;
+    right: 12px;
+    width: 60px;
+    background: rgb(177, 27, 64);
+  }
+   .bottom-loader img{width:60px;height: 60px;}
