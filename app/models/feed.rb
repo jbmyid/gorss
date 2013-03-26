@@ -13,7 +13,9 @@ class Feed < ActiveRecord::Base
   def media_image
     return data.media_image if data.media_image.present?
     html = Nokogiri::HTML(data.description)
-    html.css("img").first ? html.css("img").first.attributes["src"].value : ""      
+    image = html.css("img").select{|i| i.attributes["width"].value.to_i>50 && i.attributes["height"].value.to_i>50 }
+    # (html.css("img").first && html.css("img").first.attributes["width"]>50 && html.css("img").first.attributes["height"]>50) ? html.css("img").first.attributes["src"].value : ""      
+    image.present? ? image.first.attributes["src"].value  : "#"
   end
 
   private
