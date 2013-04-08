@@ -20,6 +20,9 @@
 	background: #00B2F0;
 	color: #FFF;
 }
+.large h5 a{color: #86240E;}
+.small h5 a{color: #101F27}
+.medium h5 a{color: #044D03}
 body{
 	/*background: #240040 !important;*/
 }

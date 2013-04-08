@@ -4,7 +4,7 @@ module ApplicationHelper
 		case Sanitize.clean(feed.data.description).length
 		when 10..600
 			"small"
-		when 600..1000
+		when 600..2000
 			"medium"
 		else
 			"large"
