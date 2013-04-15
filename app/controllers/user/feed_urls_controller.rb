@@ -1,7 +1,7 @@
 class User::FeedUrlsController < User::BaseController
   before_filter :find_feed_url, only: [:generate_feeds, :subscribe, :unsubscribe]
   def index
-    @feed_urls = FeedUrl.page(params[:page]).per(10)
+    @feed_urls = FeedUrl.all #.page(params[:page]).per(10)
   end
 
   def new
