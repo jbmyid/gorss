@@ -83,16 +83,33 @@ $(function(){
   });
   image_loading_callback();
 
-  $(".side-menu").hover(function(){
-    $(this).stop().animate({right: "0px"},200,function(){
-      show_menu_item($("ul.win8-menu li:first"))
-    })
-    },function(){
-    $(this).stop().animate({right: "-290px"},150, function(){
+  // $(".side-menu").click(function(){
+  //   $(this).stop().animate({right: "0px"},200,function(){
+  //     show_menu_item($("ul.win8-menu li:first"))
+  //   })
+  //   },function(){
+  //   $(this).stop().animate({right: "-290px"},150, function(){
+  //     $("ul.win8-menu li").css({left: "-290px"})
+  //     // hide_menu_item($("ul.win8-menu li:last"))
+  //   })
+  // })
+
+  $(".side-menu").click(function(){
+    if($(this).css("right")!="0px")
+    {
+      $(this).stop().animate({right: "0px"},200,function(){
+        show_menu_item($("ul.win8-menu li:first"))
+      })
+    }
+    else
+    {
+      $(this).stop().animate({right: "-290px"},150, function(){
       $("ul.win8-menu li").css({left: "-290px"})
       // hide_menu_item($("ul.win8-menu li:last"))
     })
+    }
   })
+
   width = $("ul.win8-menu").width();
   $("ul.win8-menu li").css({left: "-"+width+"px"});
 
@@ -105,6 +122,14 @@ $(function(){
     $(this).closest(".center-popup").fadeOut(function(){$(this).remove();});
   })
 
+  $(".color_box").each(function(index, value){
+    $(value).ColorPicker({
+      onChange: function (hsb, hex, rgb) {
+        $(value).css('backgroundColor', '#' + hex);
+      }
+    });
+  })
+  
 
 
 })

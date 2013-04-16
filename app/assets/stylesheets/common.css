@@ -166,6 +166,9 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .color_box
 {
 	display: block;
-	width: 30px;
-	height: 30px;
+	width: 10px;
+	height: 10px;
+	float: left;
+	border: 1px solid black;
+	margin: 4px;
 }
