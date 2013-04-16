@@ -21,6 +21,10 @@ module ApplicationHelper
  #    content_tag(:ul, errors.join().html_safe, class: opts[:ul_class])
  #  end
 
+ def feed_color(feed_url)
+  # current_user.user_feed_url.where()
+ end
+
 
   def display_errors(obj,field)
     return "" unless obj || obj.errors.present?

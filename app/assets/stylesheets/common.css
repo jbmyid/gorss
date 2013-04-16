@@ -160,3 +160,12 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	width:600px;
 	box-shadow: 1px 1px 3px #86D8F9;
 }
+#feed-container{
+	margin-top: 50px;
+}
+.color_box
+{
+	display: block;
+	width: 30px;
+	height: 30px;
+}
