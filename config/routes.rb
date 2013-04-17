@@ -26,6 +26,7 @@ GoRss::Application.routes.draw do
         get :generate_feeds
         get :subscribe
         get :unsubscribe
+        get :recolor
       end
       collection do
         get :generate_all_feeds

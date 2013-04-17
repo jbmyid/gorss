@@ -125,7 +125,11 @@ $(function(){
   $(".color_box").each(function(index, value){
     $(value).ColorPicker({
       onChange: function (hsb, hex, rgb) {
-        $(value).css('backgroundColor', '#' + hex);
+        $(value).css('backgroundColor', '#' + hex).data("hex-color",hex);
+      },
+      onHide: function(){
+        el = $(value)
+        $.get("/user/feed_urls/"+el.data("feed-url-id")+"/recolor", "color=" +el.data("hex-color"))
       }
     });
   })

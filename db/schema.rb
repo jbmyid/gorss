@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314093329) do
+ActiveRecord::Schema.define(:version => 20130416111007) do
 
   create_table "feed_urls", :force => true do |t|
     t.string   "title"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130314093329) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "color"
   end
 
   add_index "user_feed_urls", ["feed_url_id"], :name => "index_user_feed_urls_on_feed_url_id"

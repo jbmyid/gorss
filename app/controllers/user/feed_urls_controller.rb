@@ -1,5 +1,5 @@
 class User::FeedUrlsController < User::BaseController
-  before_filter :find_feed_url, only: [:generate_feeds, :subscribe, :unsubscribe]
+  before_filter :find_feed_url, only: [:generate_feeds, :subscribe, :unsubscribe, :recolor]
   def index
     @feed_urls = FeedUrl.all #.page(params[:page]).per(10)
   end
@@ -36,6 +36,11 @@ class User::FeedUrlsController < User::BaseController
         @feeds = current_user.subscribed_feeds.order("created_at DESC").limit(20)
       end
     end
+  end
+
+  def recolor
+    @user_feed_url = current_user.user_feed_url.where(feed_url_id: @feed_url.id).last
+    @user_feed_url.recolor("#"+params[:color])
   end
 
   def generate_all_feeds
