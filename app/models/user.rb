@@ -1,5 +1,5 @@
 class User < Person
-	devise :registerable
+	devise :registerable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :user_feed_url
   has_many :feed_urls, through: :user_feed_url
 
@@ -38,5 +38,17 @@ class User < Person
 
   def subscribed_feed_urls
     feed_urls.joins(:user_feed_url).select("feed_urls.*, user_feed_urls.color")
+  end
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(provider:auth.provider,
+                           uid:auth.uid,
+                           email:auth.info.email,
+                           password:Devise.friendly_token[0,20]
+                           )
+    end
+    user
   end
 end

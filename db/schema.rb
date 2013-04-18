@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416111007) do
+ActiveRecord::Schema.define(:version => 20130418105004) do
 
   create_table "feed_urls", :force => true do |t|
     t.string   "title"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20130416111007) do
     t.string   "type"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true

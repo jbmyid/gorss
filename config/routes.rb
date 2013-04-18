@@ -1,6 +1,6 @@
 GoRss::Application.routes.draw do
 
-  devise_for :users, controllers: {sessions: "user/sessions", registrations: "user/registrations"} do
+  devise_for :users, controllers: {sessions: "user/sessions", registrations: "user/registrations", :omniauth_callbacks => "user/omniauth_callbacks"} do
     match "/login"=> "user/sessions#new"
   end
 
