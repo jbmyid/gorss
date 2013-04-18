@@ -21,9 +21,17 @@ module ApplicationHelper
  #    content_tag(:ul, errors.join().html_safe, class: opts[:ul_class])
  #  end
 
- def feed_color(feed_url)
-  # current_user.user_feed_url.where()
- end
+  def feed_bg_color(feed)
+    return "" unless feed.color
+    color = YAML::load(feed.color)
+    color.bg
+  end
+
+  def feed_heading_color(feed)
+    return "" unless feed.color
+    color = YAML::load(feed.color)
+    color.heading
+  end
 
 
   def display_errors(obj,field)
