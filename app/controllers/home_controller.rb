@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   before_filter :check_current_user
   # layout :false
   def index
+    @feeds = Feed.page(params[:page]).per(20)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

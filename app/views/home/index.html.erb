@@ -1,4 +1,4 @@
-<div class="home-page-box">
+<!-- <div class="home-page-box">
 	<%= image_tag "gorss.png" %>
 </div>
 <div class="home-page-box" align="center">
@@ -29,4 +29,53 @@
     </div>
   <% end %>
   </div>
+</div> -->
+<style type="text/css">
+  body{background: black;}
+</style>
+
+<div id="feed-container" class="row">
+  <%= render "user/shared/feeds", feeds: @feeds %>
 </div>
+<script type="text/javascript">
+  var page = 1;
+  $(function(){
+    apply_masonry();
+    //loading 
+    
+    var loading = false,
+    finish = false;
+
+    function nearBottomOfPage() {
+      return $(window).scrollTop() > $(document).height() - $(window).height() - 50;
+    }
+
+    function finish() {
+      finish = true;
+    }
+
+    $(window).scroll(function(){
+      if (loading) {
+        return;
+      }
+
+      if(nearBottomOfPage() && !finish) {
+        loading=true;
+        page++;
+        $.ajax({
+          url: '?page=' + page,
+          type: 'get',
+          dataType: 'script',
+          beforeSend:  function(){
+            $(".bottom-loader").show();           
+          },
+          success: function() {
+            $(".bottom-loader").hide();
+            $('#feed-container').masonry('reload');
+            loading=false;
+          }
+        });
+      }
+    });
+  })
+</script>
