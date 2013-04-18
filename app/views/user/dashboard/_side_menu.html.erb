@@ -1,9 +1,9 @@
 <div class="side-menu">
   <h4>Subscribed Rss</h4>
   <ul class="win8-menu subscribed-rss">
-    <% current_user.feed_urls.each do |u| %>
+    <% @feed_urls.each do |u| %>
       <li class="subscribed-feed feed-url-<%= u.id %>"><%= link_to content_tag(:i, "", class:"icon-refresh"), generate_feeds_user_feed_url_path(u) %>
-       <div class="color_box" data-feed-url-id="<%= u.id %>"></div>
+       <div class="color_box" data-feed-url-id="<%= u.id %>" data-bg="<%= feed_bg_color(u) %>" style="background: <%= feed_bg_color(u) %>" ></div>
        <%= u.title %> <%= link_to content_tag(:i, "", class:"icon-remove danger"), unsubscribe_user_feed_url_path(u), class: "danger", remote: true%> 
       </li>
     <% end %>

@@ -25,12 +25,16 @@ module ApplicationHelper
     return "" unless feed.color
     color = YAML::load(feed.color)
     color.bg
+  rescue
+    ""
   end
 
   def feed_heading_color(feed)
     return "" unless feed.color
     color = YAML::load(feed.color)
     color.heading
+  rescue
+    ""
   end
 
 

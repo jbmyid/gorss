@@ -35,4 +35,8 @@ class User < Person
     # Feed.where("feed_url_id in (?)", urls.map(&:id))
     Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?)", urls.map(&:id))
   end
+
+  def subscribed_feed_urls
+    feed_urls.joins(:user_feed_url).select("feed_urls.*, user_feed_urls.color")
+  end
 end
