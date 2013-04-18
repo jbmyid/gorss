@@ -33,7 +33,7 @@ class User < Person
   def subscribed_feeds
     urls = feed_urls.where("status=?",FeedUrl::STATUSES[:active]).select("feed_urls.id")
     # Feed.where("feed_url_id in (?)", urls.map(&:id))
-    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?)", urls.map(&:id))
+    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?)", urls.map(&:id)).uniq("feeds.id")
   end
 
   def subscribed_feed_urls
