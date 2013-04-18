@@ -8,6 +8,10 @@
 	/*border-radius: 5px;*/
 	width: 220px;
 }
+.rss-feed-block p
+{
+	word-wrap: break-word;
+}
 /*.blue-feed
 {
 	background: #F3F8FE;
