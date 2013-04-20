@@ -50,7 +50,7 @@ body{
 	padding: 10px;
 	/*border: 1px solid #D4D4D4;*/
 	background: rgba(0,0,0,0.1);
-	border-radius: 5px 5px 0 0 ;
+											border-radius: 5px 5px 0 0 ;
 
 }
 .feed-image > img
@@ -175,4 +175,33 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	float: left;
 	border: 1px solid black;
 	margin: 4px;
+}
+
+.home-info{
+	display: block;
+	min-height: 150px;
+	background-color: #2B0620;
+	margin: 40px 0 0 0;
+	text-align: left;
+	padding: 10px 40px;
+	border-radius: 0 0 5px 5px;
+}
+.home-info h1{
+	color: #FFF;
+	font-size: 6em;
+	margin-top: 50px;
+}
+.home-info .info{
+	font-size: 1.2em;
+	color: #BCBC4C;
+	margin-top: 10px;
+	background: rgba(0,0,0, 0.6);
+	padding: 10px;
+	border-radius: 10px;
+}
+.home-info .info strong{
+	font-size: 1.4em;
+}
+.home-page #feed-container{
+	margin-top: 10px !important;
 }

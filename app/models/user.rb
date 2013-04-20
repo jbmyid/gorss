@@ -30,14 +30,22 @@ class User < Person
     end
   end
 
+  # 1 -- 10
+  # 2 -- 11 20
   def subscribed_feeds
+    # page = page ? page.to_i : 1
+    # limit = 10
+    # off = (page-1) * limit
+
     urls = feed_urls.where("status=?",FeedUrl::STATUSES[:active]).select("feed_urls.id")
-    # Feed.where("feed_url_id in (?)", urls.map(&:id))
-    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?)", urls.map(&:id)).uniq("feeds.id")
+    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("distinct feeds.id, feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?)", urls.map(&:id))
+
   end
 
   def subscribed_feed_urls
-    feed_urls.joins(:user_feed_url).select("feed_urls.*, user_feed_urls.color")
+    # user_feed_urls.joins(:feed_urls).select("")
+    # feed_urls.joins(:user_feed_url).select("feed_urls.*, user_feed_urls.color")#.uniq("feed_urls.id")
+    feed_urls.joins(:user_feed_url).select(" distinct feed_urls.id, feed_urls.*, user_feed_urls.color")#.uniq("feed_urls.id")
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

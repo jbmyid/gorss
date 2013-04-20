@@ -1,41 +1,24 @@
-<!-- <div class="home-page-box">
-	<%= image_tag "gorss.png" %>
-</div>
-<div class="home-page-box" align="center">
-  <div class="signup-box">
-	<%= form_for(User.new, :as => User.new , :url => registration_path(User.new), :html => { :class => 'form-horizontal' }) do |f| %>
-    <div class="control-group">
-      <%= f.label :email, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :email, :class => 'text_area', placeholder: "Enter email address here" %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :password, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.password_field :password, :class => 'text_area', placeholder: "Enter password here" %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :password_confirmation, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.password_field :password_confirmation, :class => 'text_area',placeholder: "Please reenter password here" %>
-      </div>
-    </div>
-    <div class="control-group">
-    	<div class="controls">
-      	<%= f.submit "Sign Up", :class => 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
-  </div>
-</div> -->
 <style type="text/css">
   body{background: black;}
 </style>
-
-<div id="feed-container" class="row">
-  <%= render "user/shared/feeds", feeds: @feeds %>
+<div class="home-page">
+  <div class="row home-info">
+    <div class="span4">
+      <h1>Go-Rss</h1>
+    </div>
+    <div class="span8 info">
+      <p>
+        <strong>Do</strong> you visit different websites for news or updates every day<strong>?</strong>
+      </p>
+      <p>
+        <strong>Do</strong> you want to centralize all news at one place<strong>?</strong> </p>
+      <p>Yeh....You are at right place, chose your news sites and categories to view updates of your favourite sites. <!-- Set your favourite color for each kind of updates. --></p>
+      <p><%= link_to "Sign in", new_user_session_path %> to customize your dashboard. </p>
+    </div>
+  </div>
+  <div id="feed-container" class="row">
+    <%= render "user/shared/feeds", feeds: @feeds %>
+  </div>
 </div>
 <script type="text/javascript">
   var page = 1;
