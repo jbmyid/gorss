@@ -4,9 +4,10 @@ class FeedUrl < ActiveRecord::Base
 
   attr_accessible :description, :title, :url
   validates :url, uniqueness: true, presence: true, format: /http?:\/\/[\S]+/
+  validate :title, presence: true
   # validates :status, inclusion: {in: STATUSES.map{|i,v| v}}
   
-  before_create :parse_rss
+  before_validation :parse_rss
   # validate :parsable?
 
   has_many :feeds
@@ -66,7 +67,7 @@ class FeedUrl < ActiveRecord::Base
   private
 
   def parse_rss
-  	feed = RssParser::RssFeed.parse_rss_url(url)
+  	feed = RssParser::RssFeed.parse_rss_url(url) rescue nil
   	unless feed
   		errors[:url] << "not able to parse."
   	else
