@@ -67,6 +67,7 @@ class FeedUrl < ActiveRecord::Base
   private
 
   def parse_rss
+    return if title
   	feed = RssParser::RssFeed.parse_rss_url(url) rescue nil
   	unless feed
   		errors[:url] << "not able to parse."
