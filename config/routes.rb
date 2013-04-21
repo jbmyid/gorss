@@ -16,7 +16,7 @@ GoRss::Application.routes.draw do
         get :generate_feeds
       end
     end
-
+    resources :users, only: [:index]
   end
 
   namespace :user do 
