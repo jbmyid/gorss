@@ -1,6 +1,6 @@
 <div class="rss-feed-block blue-feed <%= feed_class(feed) %> feed_url_<%=feed.feed_url_id%>" style= "background-color: <%= feed_bg_color(feed) %>">
-	<%#= debug YAML::load(feed.color) %>
 	<% entry = feed.data %>
+	<span class="published_date"><%= date_format entry.published %></span>
 	<% if feed.media_image %>
 		<div class="feed-image" >
 			<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
@@ -12,6 +12,8 @@
 	<% end %>
 	<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{feed_heading_color(feed)}"%></h5>
 	<p> <%= Sanitize.clean entry.description %></p>
+	<hr>
+	<span class="url-title"><%= feed.try(:url_title) || feed_url_title %></span>
 	<div class="feed-category">
 		<strong class="clear" >Categories</strong>
 		<% entry.categories.each do |b| %>

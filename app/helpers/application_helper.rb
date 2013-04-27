@@ -42,4 +42,8 @@ module ApplicationHelper
     return "" unless obj || obj.errors.present?
     obj.errors.messages[field].join("<br>").html_safe
   end
+
+  def date_format(date)
+    Date.parse(date).try(:strftime, "%d %b %y") rescue nil
+  end
 end

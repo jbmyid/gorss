@@ -205,3 +205,29 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .home-page #feed-container{
 	margin-top: 10px !important;
 }
+
+.rss-feed-block .published_date
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 2px;
+	display: block;
+	background: rgba(0,0,0,0.6);
+	box-shadow: -1px 1px 2px black;
+	font-size: 10px;
+}
+
+.rss-feed-block .url-title
+{
+	display: block;
+	padding: 2px;
+	font-weight: bold;
+	font-size: 0.9em;
+	text-align: left;
+	color: rgba(0,0,0,0.6);
+}
+.rss-feed-block hr
+{
+	margin:  5px 0;
+}

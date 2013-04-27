@@ -9,6 +9,7 @@ class Feed < ActiveRecord::Base
 
   before_validation :set_default
 
+  delegate :title, to: :feed_url, prefix: true
 
   def media_image
     return data.media_image if data.media_image.present?

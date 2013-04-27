@@ -40,7 +40,7 @@ class User < Person
     urls = feed_urls.where("status=?",FeedUrl::STATUSES[:active]).select("feed_urls.id")
      # urls = feed_urls.where("status=?",FeedUrl::STATUSES[:active]).pluck("feed_urls.id").join(",")
     # Feed.find_by_sql("Select distinct f.id, f.*, u.color,u.id as u_id from user_feed_urls u LEFT JOIN feeds f ON f.feed_url_id=u.feed_url_id where u.user_id = #{self.id} and u.feed_url_id in (#{urls}) ORDER BY f.created_at DESC LIMIT #{limit}  OFFSET #{off}")
-    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id").select("distinct feeds.*, user_feed_urls.color").where("feeds.feed_url_id in (?) and user_feed_urls.user_id=?", urls.map(&:id),self.id)
+    Feed.joins("LEFT JOIN user_feed_urls ON feeds.feed_url_id=user_feed_urls.feed_url_id LEFT JOIN feed_urls fu ON fu.id=feeds.feed_url_id").select("distinct feeds.*, user_feed_urls.color, fu.title as url_title").where("feeds.feed_url_id in (?) and user_feed_urls.user_id=?", urls.map(&:id),self.id)
   end
 
   def subscribed_feed_urls
