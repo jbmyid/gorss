@@ -13,7 +13,7 @@
 	<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{feed_heading_color(feed)}"%></h5>
 	<p> <%= Sanitize.clean entry.description %></p>
 	<hr>
-	<span class="url-title"><%= feed.try(:url_title) || feed_url_title %></span>
+	<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
 	<div class="feed-category">
 		<strong class="clear" >Categories</strong>
 		<% entry.categories.each do |b| %>
