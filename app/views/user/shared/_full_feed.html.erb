@@ -1,0 +1,30 @@
+<div class="fullPopup" style="display: block" id="fullFeedPopup">
+	<div class="leftSide">
+		<div class="fullFeed">
+			<% entry = feed.data %>
+			<span class="published_date"><%= date_format entry.published %></span>
+			<% if feed.media_image %>
+				<div class="feed-image" >
+					<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
+					<div class="image-loading" style="display:block">
+						<%= image_tag "loading.gif" %>
+					</div>
+				</div>
+
+			<% end %>
+			<h5><%= link_to entry.title, feed_path(feed), target: "_blank", style: "color: #{feed_heading_color(feed)}", remote: true%></h5>
+			<p> <%= Sanitize.clean entry.description %></p>
+			<hr>
+			<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
+			<div class="feed-category">
+				<strong class="clear" >Categories</strong>
+				<% entry.categories.each do |b| %>
+				<div class="close-btn btn btn-danger"><a href="javascript:void(0);">CLOSE</a></div>
+					<span class="label label-inverse"><%= b %></span>
+				<% end %>
+			</div>
+			
+		</div>
+	</div>
+	<div class="back"><a href="javascript:void(0);"><<</a></div>
+</div>

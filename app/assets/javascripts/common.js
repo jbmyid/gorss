@@ -139,6 +139,10 @@ $(function(){
 
   
   apply_color_picker()
-
+  $(document).on("click", ".fullPopup .back", function(){
+    $(this).closest(".fullPopup").animate({left: "-100%"}, 200, function(){
+      $(this).remove()
+    })
+  })
 
 })

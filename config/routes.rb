@@ -8,6 +8,7 @@ GoRss::Application.routes.draw do
     match "/admin" => "admin/sessions#new"
   end
 
+  resources :feeds, only: [:show]
   namespace :admin do
     resources :feed_urls do
       member do

@@ -10,7 +10,7 @@
 		</div>
 
 	<% end %>
-	<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{feed_heading_color(feed)}"%></h5>
+	<h5><%= link_to entry.title, feed_path(feed), target: "_blank", style: "color: #{feed_heading_color(feed)}", remote: true%></h5>
 	<p> <%= Sanitize.clean entry.description %></p>
 	<hr>
 	<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>

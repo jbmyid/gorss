@@ -1,0 +1,4 @@
+html = "<%= j(render 'user/shared/full_feed', feed: @feed) %>";
+$("body").append(html)
+$("#fullFeedPopup").animate({left: "0"})
+image_loading_callback();
