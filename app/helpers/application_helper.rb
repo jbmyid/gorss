@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  require "feed_color"
 	def feed_class(feed)
 		case Sanitize.clean(feed.data.description).length
 		when 10..600
@@ -27,6 +27,14 @@ module ApplicationHelper
     color.bg
   rescue
     ""
+  end
+
+  def full_feed_bg_color(feed)
+    color = feed.get_color(current_user)
+    return "" unless color
+    color.bg
+    rescue
+      ""
   end
 
   def feed_heading_color(feed)

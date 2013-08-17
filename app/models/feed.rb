@@ -19,6 +19,10 @@ class Feed < ActiveRecord::Base
     image.present? ? image.first.attributes["src"].value  : nil
   end
 
+  def get_color(user=nil)
+    user ? feed_url.user_feed_url.where("user_id=?", user.id).last.color : color
+  end
+
   private
 
   def set_default

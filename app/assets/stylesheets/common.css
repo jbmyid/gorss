@@ -266,7 +266,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	background: rgb(0, 66, 110);
     display: block;
     float: right;
-    height: 50%;
+    height: 100%;
     padding-top: 21%;
     text-align: center;
     vertical-align: middle;
@@ -277,4 +277,13 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 .fullFeed .feed-image img{
 	width: 400px !important;
+}
+.fullFeed{
+	padding: 5px;
+}
+.fullFeed p{
+	font-size: 14px;
+}
+.fullFeed h5 a{
+	font-size: 30px;
 }
