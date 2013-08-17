@@ -12,7 +12,7 @@
 				</div>
 
 			<% end %>
-			<h5><%= link_to entry.title, feed_path(feed), target: "_blank", style: "color: #{feed_heading_color(feed)}", remote: true%></h5>
+			<h5><%= link_to entry.title, feed_path(feed), target: "_blank", style: "color: #{full_feed_heading_color(feed)}", remote: true%></h5>
 			<p> <%= Sanitize.clean entry.description %></p>
 			<hr>
 			<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
@@ -25,5 +25,7 @@
 			
 		</div>
 	</div>
-	<div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>"><a href="javascript:void(0);"><<</a></div>
+	<div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>">
+		<a href="javascript:void(0);"><<</a>
+	</div>
 </div>

@@ -45,6 +45,14 @@ module ApplicationHelper
     ""
   end
 
+  def full_feed_heading_color(feed)
+    color = feed.get_color(current_user)
+    return "" unless color
+    color.heading
+  rescue
+    ""
+  end
+
 
   def display_errors(obj,field)
     return "" unless obj || obj.errors.present?
