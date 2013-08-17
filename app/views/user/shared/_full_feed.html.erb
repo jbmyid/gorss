@@ -1,6 +1,9 @@
 <div class="fullPopup" style="display: block" id="fullFeedPopup">
 	<div class="leftSide">
 		<div class="fullFeed <%= feed_class(feed) %>" style= "background-color: <%= full_feed_bg_color(feed) %>">
+			<div class="back" style= "background-color: <%= full_feed_heading_color(feed) %>">
+				<strong>Close</strong>
+			</div>
 			<% entry = feed.data %>
 			<span class="published_date"><%= date_format entry.published %></span>
 			<% if feed.media_image %>
@@ -25,7 +28,7 @@
 			
 		</div>
 	</div>
-	<div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>">
+	<!-- <div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>">
 		<a href="javascript:void(0);"><<</a>
-	</div>
+	</div> -->
 </div>

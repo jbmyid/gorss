@@ -258,8 +258,6 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	overflow-y: auto; 
 }
 .fullPopup .leftSide{
-	width: 98%;
-	float: left;
 	display: block;
 }
 .fullPopup .back{
@@ -269,7 +267,10 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
     min-height: 100%;
     text-align: center;
     vertical-align: middle;
-    width: 2%;
+    width: 100%;
+    color: white !important;
+    font-size: 14px;
+   	cursor: pointer;
 }
 .fullFeed .feed-image{
 	text-align: center;
@@ -292,3 +293,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .fullPopup .fullFeed{
 	min-height: 100%;
 }
+.large .back{background-color: #86240E; color: #000;
+}
+.small .back{background-color: #101F27}
+.medium .back{background-color: #044D03}
