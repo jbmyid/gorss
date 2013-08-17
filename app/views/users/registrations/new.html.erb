@@ -33,10 +33,7 @@
 			  <div class="control-group">
 			  	<div class="controls">
 			    	<%= f.submit "Sign Up", :class => 'btn btn-primary pull-left' %>
-			    	<br>
-			    	<div class="clear">
-			    		<%= render "devise/shared/links" %>
-			    	</div>
+			    	<%= link_to "Sign in", new_session_path(resource_name), class: "btn" %><br />
 			    </div>
 			  </div>
 			  

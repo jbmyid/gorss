@@ -35,21 +35,15 @@
 }
 body{
 	/*background: #240040 !important;*/
+	background-color: black;
 }
 
 .medium{
-	/*width: 300px;*/
-/*	background: #FAE6F4;
-	color: #FA63CA;*/	
-	/*background: #4E0088;*/
 	background: #019F02;
 	color: #FFF;
 }
 .large{
-	/*width: 400px;*/
-	/*background: #FCF7CB ;*/
 	background: #D84F2B;
-	/*color: #484101 ;*/
 	color: #FFF;
 }
 .large p{
@@ -92,6 +86,7 @@ overflow: hidden;
 	padding: 20px;
 	color: #FFF;
 	text-align: left;
+	background-color: rgb(0, 178, 240);
 }
 .image-loading
 {
@@ -297,3 +292,6 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 .small .back{background-color: #101F27}
 .medium .back{background-color: #044D03}
+.flash-message{
+	margin-top: 45px;
+}
