@@ -266,8 +266,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 	background: rgb(0, 66, 110);
     display: block;
     float: right;
-    height: 100%;
-    padding-top: 21%;
+    min-height: 100%;
     text-align: center;
     vertical-align: middle;
     width: 2%;
@@ -286,4 +285,10 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 .fullFeed h5 a{
 	font-size: 30px;
+}
+.fullPopup .leftSide{
+	height: 100%;
+}
+.fullPopup .fullFeed{
+	min-height: 100%;
 }
