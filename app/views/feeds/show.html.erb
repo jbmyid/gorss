@@ -1,3 +1,6 @@
+<%= content_for :rel_tag do %>
+	<link rel="image_src" href="<%= feed.media_image ? feed.media_image.gsub(/\?(.*)/,'') : '' %>" />
+<% end %>
 <%= render 'user/shared/full_feed', feed: @feed %>
 <script type="text/javascript">
 	$(function(){
