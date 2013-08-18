@@ -6,6 +6,9 @@
 			</div>
 			<% entry = feed.data %>
 			<span class="published_date"><%= date_format entry.published %></span>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(feed_url(feed)) %>" target="_blank">
+			  Share on Facebook
+			</a>
 			<% if feed.media_image %>
 				<div class="feed-image" >
 					<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
@@ -15,7 +18,7 @@
 				</div>
 
 			<% end %>
-			<h5><%= link_to entry.title, feed_path(feed), target: "_blank", style: "color: #{full_feed_heading_color(feed)}", remote: true%></h5>
+			<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{full_feed_heading_color(feed)}"%></h5>
 			<p> <%= Sanitize.clean entry.description %></p>
 			<hr>
 			<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
@@ -28,6 +31,7 @@
 			
 		</div>
 	</div>
+
 	<!-- <div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>">
 		<a href="javascript:void(0);"><<</a>
 	</div> -->

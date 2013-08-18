@@ -295,3 +295,12 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .flash-message{
 	margin-top: 45px;
 }
+.small ::selection {
+	background: #101F27;
+}
+.medium ::selection {
+	background: #044D03;
+}
+.large ::selection{
+	background: #86240E;
+}
