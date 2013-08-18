@@ -1,4 +1,9 @@
 <%= content_for :rel_tag do %>
+	<meta property="og:title" content="Go RSS | The portal to centralize all news and updates" />
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="<%= @feed.media_image ? @feed.media_image.gsub(/\?(.*)/,'') : '' %>" />
+	<meta property="og:url" content="http://gorss.jbmyid.in<%= feed_path(@feed) %>" />
+	<meta property="og:description" content="<%= Sanitize.clean @feed.data.description %>" />
 	<link rel="image_src" href="<%= @feed.media_image ? @feed.media_image.gsub(/\?(.*)/,'') : '' %>" />
 <% end %>
 <%= render 'user/shared/full_feed', feed: @feed %>
