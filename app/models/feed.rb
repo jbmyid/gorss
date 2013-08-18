@@ -16,7 +16,12 @@ class Feed < ActiveRecord::Base
     html = Nokogiri::HTML(data.description)
     image = html.css("img").select{|i| i.attributes["width"] && i.attributes["width"].value.to_i>50 && i.attributes["height"] && i.attributes["height"].value.to_i>50 }
     # (html.css("img").first && html.css("img").first.attributes["width"]>50 && html.css("img").first.attributes["height"]>50) ? html.css("img").first.attributes["src"].value : ""      
-    image.present? ? image.first.attributes["src"].value  : nil
+    if image.present? 
+      href = image.first.attributes["src"].value  
+      href.match(/http:\/\//) ? href : "http://" + href.gsub(/\/\//, "")
+    else
+      nil
+    end 
   end
 
   def get_color(user=nil)
