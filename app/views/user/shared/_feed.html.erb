@@ -3,7 +3,8 @@
 	<span class="published_date"><%= date_format entry.published %></span>
 	<% if feed.media_image %>
 		<div class="feed-image" >
-			<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
+			<%#.gsub(/\?(.*)/,"")%>
+			<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
 			<div class="image-loading" style="display:block">
 				<%= image_tag "loading.gif" %>
 			</div>

@@ -62,4 +62,8 @@ module ApplicationHelper
   def date_format(date)
     Date.parse(date).try(:strftime, "%d %b %y") rescue nil
   end
+
+  def image_url(url)
+    url.match(/.gstatic.com/) ? url : url.gsub(/\?(.*)/,"")
+  end
 end
