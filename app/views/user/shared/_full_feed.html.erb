@@ -6,7 +6,7 @@
 			</div>
 			<% entry = feed.data %>
 			<span class="published_date"><%= date_format entry.published %></span>
-			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(feed_url(feed)) %>" target="_blank">
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http://gorss.jbmyid.in<%= URI::encode(feed_path(feed)) %>" target="_blank">
 			  Share on Facebook
 			</a>
 			<% if feed.media_image %>
