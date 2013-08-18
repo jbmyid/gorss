@@ -304,3 +304,6 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .large ::selection{
 	background: #86240E;
 }
+.sharer{
+	padding: 5px
+}

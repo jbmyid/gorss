@@ -6,9 +6,7 @@
 			</div>
 			<% entry = feed.data %>
 			<span class="published_date"><%= date_format entry.published %></span>
-			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(feed_url(feed)) %>" target="_blank">
-			  Share on Facebook
-			</a>
+
 			<% if feed.media_image %>
 				<div class="feed-image" >
 					<%= image_tag feed.media_image.gsub(/\?(.*)/,""), style:"display:none", class: "f-img"%>
@@ -28,8 +26,13 @@
 					<span class="label label-inverse"><%= b %></span>
 				<% end %>
 			</div>
-			
+			<div class="sharer">
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(feed_url(feed)) %>" target="_blank">
+				  <%= image_tag "facebook.png" %>
+				</a>
+			</div>	
 		</div>
+
 	</div>
 
 	<!-- <div class="back" style= "background-color: <%= full_feed_bg_color(feed) %>">
