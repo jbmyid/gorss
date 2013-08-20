@@ -99,7 +99,7 @@ overflow: hidden;
 	display: block;
 	width: 300px;
 	background: #019F02;
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	right: -290px;
 	/*right: 0;*/
@@ -131,7 +131,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .popup{
 	display: none;
 	width: 50%;
-	height: 100%;
+	min-height: 100%;
 	background: #019F02;
 	position: absolute;
 	z-index: 999;
