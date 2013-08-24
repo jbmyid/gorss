@@ -82,7 +82,7 @@ function apply_color_picker(){
       },
       onHide: function(){
         el = $(value)
-        $.get("/user/feed_urls/"+el.data("feed-url-id")+"/recolor", "color=" +el.data("hex-color"))
+        $.get(el.data("url"), "color=" +el.data("hex-color"))
       }
     });
   })

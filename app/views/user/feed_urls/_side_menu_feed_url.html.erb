@@ -1,5 +1,5 @@
 <li class="subscribed-feed feed-url-<%= feed_url.id %>">
-  <div class="color_box" data-feed-url-id="<%= feed_url.id %>"></div>
+  <div class="color_box" data-feed-url-id="<%= feed_url.id %>" data-url="<%=recolor_user_feed_url_path(feed_url) %>" ></div>
   <%= link_to content_tag(:i, "", class:"icon-refresh"), generate_feeds_user_feed_url_path(feed_url) %> 
   <%= feed_url.title %> 
   <%= link_to content_tag(:i, "", class:"icon-remove danger"), unsubscribe_user_feed_url_path(feed_url), class: "danger", remote: true%> 

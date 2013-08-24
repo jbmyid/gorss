@@ -2,7 +2,7 @@ class Admin::FeedUrlsController < Admin::BaseController
   # GET /feed_urls
   # GET /feed_urls.json
   def index
-    @feed_urls = FeedUrl.all
+    @feed_urls = current_user.feed_urls
 
     respond_to do |format|
       format.html # index.html.erb
@@ -100,5 +100,12 @@ class Admin::FeedUrlsController < Admin::BaseController
     @feed_url = FeedUrl.find(params[:id])
     @feed_url.generate_feed
     redirect_to admin_feed_urls_path
+  end
+
+  def recolor
+    @feed_url = FeedUrl.find(params[:id])
+    @user_feed_url = (current_user.user_feed_url.where(feed_url_id: @feed_url.id).last || current_user.user_feed_url.create(feed_url_id: @feed_url.id) )
+    @user_feed_url.recolor("#"+params[:color])
+    render nothing: true
   end
 end

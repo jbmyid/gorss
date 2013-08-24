@@ -20,6 +20,7 @@
         <td><%= feed_url.status %></td>
         <td><%=l feed_url.created_at %></td>
         <td>
+          <div class="color_box" data-feed-url-id="<%= feed_url.id %>" data-url="<%=recolor_admin_feed_url_path(feed_url) %>" data-bg="<%= feed_bg_color(feed_url) %>" style="background: <%= feed_bg_color(feed_url) %>"  ></div>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_feed_url_path(feed_url), :class => 'btn btn-mini' %>
           <% if feed_url.pending? %>

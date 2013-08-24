@@ -15,6 +15,7 @@ GoRss::Application.routes.draw do
         get :activate
         get :deactivate
         get :generate_feeds
+        get :recolor
       end
     end
     resources :users, only: [:index]
