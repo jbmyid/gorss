@@ -14,6 +14,6 @@ class Admin < Person
   end
 
   def feed_urls
-    FeedUrl.joins("LEFT JOIN user_feed_urls ufu ON ufu.feed_url_id=feed_urls.id && ufu.user_id=#{self.id}").select("feed_urls.*, ufu.color").uniq("feed_urls.id, ufu.")
+    FeedUrl.joins("LEFT JOIN user_feed_urls ufu ON ufu.feed_url_id=feed_urls.id AND ufu.user_id=#{self.id}").select("feed_urls.*, ufu.color").uniq("feed_urls.id, ufu.")
   end
 end
