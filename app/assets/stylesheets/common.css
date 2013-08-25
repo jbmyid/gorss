@@ -36,6 +36,7 @@
 body{
 	/*background: #240040 !important;*/
 	background-color: black;
+	overflow-x: hidden;
 }
 
 .medium{
