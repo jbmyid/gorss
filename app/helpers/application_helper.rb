@@ -1,5 +1,10 @@
 module ApplicationHelper
   require "feed_color"
+
+  def page_title
+    @title || "GoRss - Central Portal For Latest updates"
+  end
+
 	def feed_class(feed)
 		case Sanitize.clean(feed.data.description).length
 		when 10..600
