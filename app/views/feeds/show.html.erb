@@ -1,5 +1,5 @@
 <%= content_for :rel_tag do %>
-	<meta property="og:title" content= "<%= title %>" />
+	<meta property="og:title" content= "<%= @title %>" />
 	<meta property="og:type" content="article" />
 	<meta property="og:image" content="<%= @feed.media_image ? @feed.media_image.gsub(/\?(.*)/,'') : '' %>" />
 	<meta property="og:url" content="http://gorss.jbmyid.in<%= feed_path(@feed) %>" />
