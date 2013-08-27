@@ -309,3 +309,14 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .sharer{
 	padding: 5px
 }
+.goRssIntro{
+	background: black;
+	color: white;
+	border: 1px solid white;
+}
+.goRssIntro h5{
+	color: #FA6400;
+}
+#coin-slider{
+	margin-top: 20px;
+}

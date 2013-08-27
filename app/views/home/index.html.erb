@@ -1,8 +1,21 @@
+<%= javascript_include_tag "coin-slider.min" %>
+<%= stylesheet_link_tag "coin-slider-styles", :media => "all" %>
 <style type="text/css">
   body{background: black;}
 </style>
 <div class="home-page">
-  <div class="row home-info">
+  <div id='coin-slider'>
+    <a href="javascript:void(0);">
+        <img src='/images/gorss-main.jpg' >
+    </a>
+    <a href="javascript:void(0);">
+        <img src='/images/personalize.jpg' >
+    </a>
+    <a href="javascript:void(0);">
+        <img src='/images/view_it_large.jpg' >
+    </a>
+</div>
+  <!-- <div class="row home-info">
     <div class="span4">
       <h1>Go-Rss</h1>
     </div>
@@ -12,11 +25,44 @@
       </p>
       <p>
         <strong>Do</strong> you want to centralize all news at one place<strong>?</strong> </p>
-      <p>Yeh....You are at right place, choose your news sites and categories to view updates of your favourite sites. <!-- Set your favourite color for each kind of updates. --></p>
+      <p>Yeh....You are at right place, choose your news sites and categories to view updates of your favourite sites. <!-- Set your favourite color for each kind of updates.</p>
       <p><%= link_to "Sign in", new_user_session_path %> to customize your dashboard. </p>
-    </div>
+    </div> -->
   </div>
+  <%= content_for :rel_tag do %>
+    <meta property="og:title" content= "<%= page_title %>" />
+    <meta property="og:image" content="<%= request.host_with_port+"/images/gorsslogo.png" %>" />
+    <meta property="og:url" content="<%= request.host_with_port %>" />
+    <meta property="og:description" content="Centralize all news and updates at one place. Colurize your update types with your favourite colours." />
+    <link rel="image_src" href="<%= request.host_with_port+"/images/gorsslogo.png" %>" />
+  <% end %>
+
   <div id="feed-container" class="row">
+    <div class="rss-feed-block goRssIntro">
+        <div class="feed-image" >
+          <%#.gsub(/\?(.*)/,"")%>
+          <img src="images/gorsslogo.png" class: "f-img"/>
+        </div>
+      <h5><%= page_title %></h5>
+      <p>
+        Do you visit different websites for news or updates every day?
+        <br>
+        Do you want to centralize all news at one place?
+        <br>
+        Yeh....You are at right place, choose your news sites and categories to view updates of your favourite sites. <br>
+        <%= link_to "Sign in", new_user_session_path %> to customize your dashboard. 
+      </p>
+      <hr>
+      <div class="feed-category">
+        <%= link_to new_user_session_path do %>
+          <span class="label label-inverse">Signin</span>
+        <% end %>
+        <%= link_to new_user_registration_path do %>
+          <span class="label label-inverse">Sign Up</span>
+        <% end %>
+      </div>
+      
+    </div>
     <%= render "user/shared/feeds", feeds: @feeds %>
   </div>
 </div>
@@ -60,5 +106,8 @@
         });
       }
     });
+
+
+    $('#coin-slider').coinslider({width: 1366, height: 300});
   })
 </script>
