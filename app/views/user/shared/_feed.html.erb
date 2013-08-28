@@ -4,10 +4,10 @@
 	<% if feed.media_image %>
 		<div class="feed-image" >
 			<%#.gsub(/\?(.*)/,"")%>
-			<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
-			<div class="image-loading" style="display:block">
+			<%= image_tag image_url(feed.media_image), style:"display:block", class: "f-img"%>
+			<!-- <div class="image-loading" style="display:block">
 				<%= image_tag "loading.gif" %>
-			</div>
+			</div> -->
 		</div>
 
 	<% end %>
