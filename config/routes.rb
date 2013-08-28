@@ -34,6 +34,12 @@ GoRss::Application.routes.draw do
         get :generate_all_feeds
       end
     end
+    resources :categories do
+      member do
+        get :recolor
+      end
+    end
+    resources :tabs
   end
 
   get "home/index"

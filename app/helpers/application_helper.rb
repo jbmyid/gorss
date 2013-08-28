@@ -71,4 +71,20 @@ module ApplicationHelper
   def image_url(url)
     url.match(/.gstatic.com/) ? url : url.gsub(/\?(.*)/,"")
   end
+
+  def category_bg(cat)
+    return "" unless cat.color
+    color = cat.color
+    "#"+color.bg
+  rescue
+    ""
+  end
+
+  def category_dark(cat)
+    return "" unless cat.color
+    color = cat.color
+    color.heading
+  rescue
+    ""
+  end
 end

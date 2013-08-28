@@ -173,6 +173,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 #feed-container{
 	margin-top: 50px;
+	/*min-width: 100%;*/
 }
 .color_box
 {
@@ -319,4 +320,55 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 #coin-slider{
 	margin-top: 20px;
+}
+.tab-cat-block{
+	background: rgb(235, 14, 14);
+}
+.tab-cat-block h5{
+	color: #760707;
+}
+.tab-cat-block > ul{
+	list-style: none;
+	list-style-type: none;
+	clear: both;
+	display: block;
+	width: 100%;
+	float: left;
+	margin: 0;
+}
+.tab-cat-block > ul li{
+	display: block;
+	float: left;
+	width: 100%;
+	text-align: left;
+	background: #760707;
+	padding: 5px 0 5px 5px;
+	color: white;
+	font-size: 12px;
+	margin-bottom: 2px;
+}
+.tab-cat-block > ul li a{
+	font-size: 14px;
+	float: right;
+	padding: 0 5px 0 0;
+	color: red;
+	cursor: pointer;
+	text-decoration: none;
+}
+.tab_form input[type='text']{
+	width: 80%;
+	font-size: 10px;
+	padding: 2px 5px;
+}
+.tab_form button{
+	font-size: 12px;
+}
+.tab-cat-block .remove_cat{
+	position: absolute;
+	right: 10px;
+	color: #760707;
+	text-decoration: none;
+}
+.categories_container{
+	min-width: 100%;
 }

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418105004) do
+ActiveRecord::Schema.define(:version => 20130828173654) do
+
+  create_table "categories", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "color"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "feed_urls", :force => true do |t|
     t.string   "title"
@@ -52,6 +60,15 @@ ActiveRecord::Schema.define(:version => 20130418105004) do
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
+
+  create_table "tabs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "category_id"
+    t.text     "url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "user_feed_urls", :force => true do |t|
     t.integer  "feed_url_id"

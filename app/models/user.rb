@@ -2,7 +2,8 @@ class User < Person
 	devise :registerable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :user_feed_url
   has_many :feed_urls, through: :user_feed_url
-
+  has_many :categories
+  has_many :tabs
 
   def subscribe(feed_url)
     sub =user_feed_url.build(feed_url_id: feed_url.id)

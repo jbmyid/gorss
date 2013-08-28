@@ -145,4 +145,13 @@ $(function(){
     })
   })
 
+  $(document).on("click", ".new_link", function(){
+    $(".new_form",$(this).closest("li")).toggle()
+    // $(".new_category_form").toggle()
+    $('#feed-container').masonry('reload');
+  })
+  $(document).on("click","button", function(){
+    $(this).closest("form").submit()
+  })
+
 })
