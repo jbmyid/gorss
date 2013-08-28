@@ -56,7 +56,7 @@ class FeedUrl < ActiveRecord::Base
         old_f = Feed.where("guid=?",(e.entry_id || e.link)).first
         new_f = u.feeds.build(data: e) unless old_f
         objs << new_f if new_f
-      end
+      end if feed
     end
     objs.shuffle!
     objs.each do |f|
