@@ -1,0 +1,26 @@
+<div id="feed-container" class="categories_container">
+  <div class="rss-feed-block tab-cat-block">
+    <h5>Manage Tabs</h5>
+    <ul>
+      <li>
+        <span>New Category</span>
+        <a href="javascript:void(0)" id="new_category_link" class="new_link" title="New Category">
+          <i class="icon-share-alt"></i>
+        </a>
+        <%= form_for [:user, @category], remote: true, html:{class: "new_category_form new_form tab_form", style: "display: none"} do |f| %>
+          <%= f.text_field :name, class: "span8", placeholder: "Enter name" %>
+          <button class="btn" type="button">Create</button>
+        <% end %>
+      </li>
+      
+    </ul>
+    <hr>
+  </div>
+
+  <%= render @categories %>
+</div>
+<script type="text/javascript">
+  $(function(){
+    apply_masonry();
+  })
+</script>

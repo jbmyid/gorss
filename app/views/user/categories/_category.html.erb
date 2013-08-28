@@ -1,0 +1,28 @@
+<div class="rss-feed-block tab-cat-block" id="category_<%= category.id %>" style="background: <%= category_bg(category) %>">
+  <div class="color_box" data-feed-url-id="<%= category.id %>" data-url="<%=recolor_user_category_path(category) %>" data-bg="<%= category_bg(category) %>" style="background: <%= category_bg(category) %>"  ></div>
+  <%= link_to [:user,category], method: "delete", remote: true, class: "remove_cat", title: "Remove category",style: "color: #{category_dark(category)}" do %>
+    <i class="icon-remove-circle"></i>
+  <%end%>
+  <h5 style="color: <%=category_dark(category)%>"><%= category.name %></h5>
+  <ul id="category_ul_<%= category.id %>" >
+    <% category.tabs.each do |t| %>
+      <%= render t, category: category %>
+    <% end %>
+    
+  </ul>
+  <ul>
+    <li style="background: <%= category_dark(category) %>">
+      <span>New Tab</span>
+      <a href="javascript:void(0)" class="new_link" style="color: <%=category_bg(category)%>">
+        <i class="icon-share-alt"></i>
+      </a>
+      <%= form_for [:user, Tab.new], remote: true, html: {class: "tab_form new_form", style: "display: none"} do |tf| %>
+        <%= tf.text_field :name , placeholder: "Enter name"%>
+        <%= tf.text_field :url, placeholder: "Enter url" %>
+        <%= tf.hidden_field :category_id, value: category.id %>
+        <button class="btn" type="button">Add</button>
+      <%end%>
+    </li>
+  </ul>
+  <hr>
+</div>

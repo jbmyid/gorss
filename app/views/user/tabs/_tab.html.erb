@@ -1,0 +1,14 @@
+<% category ||=  tab.category %>
+
+<li id="tab_<%=tab.id%>" style="background: <%= category_dark(category) %>">
+  <span><%= tab.name %></span>
+  <%= link_to [:user,tab], method: "delete", remote: true, title: "Remove Tab", style: "color: #{category_bg(category)}" do %>
+    <i class="icon-remove-circle"></i>
+  <%end%>
+  <a href="<%= tab.url %>" target="_blank" title="Go to page" style="color: <%=category_bg(category)%>">
+    <i class="icon-share-alt"></i>
+  </a>
+  <!-- <a href="#" title="Edit Tab">
+    <i class="icon-edit"></i>
+  </a> -->
+</li>

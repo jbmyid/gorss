@@ -1,0 +1,9 @@
+<% if @tab.errors.any? %>
+  alert("<%= @tab.errors.full_messages.join(',')%>")
+<% else %>
+  $(".new_category_form input").val("")
+  html = "<%= j(render @tab) %>";
+  $("#category_ul_<%= @tab.category_id %>").append(html);
+  $('#feed-container').masonry('reload');
+<% end %>
+
