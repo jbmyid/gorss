@@ -12,7 +12,7 @@
   </ul>
   <ul>
     <li style="background: <%= category_dark(category) %>">
-      <span>New Tab</span>
+      <span>Add New Tab</span>
       <a href="javascript:void(0)" class="new_link" style="color: <%=category_bg(category)%>">
         <i class="icon-share-alt"></i>
       </a>
@@ -20,7 +20,7 @@
         <%= tf.text_field :name , placeholder: "Enter name"%>
         <%= tf.text_field :url, placeholder: "Enter url" %>
         <%= tf.hidden_field :category_id, value: category.id %>
-        <button class="btn" type="button">Add</button>
+        <button class="btn" type="button">Add Tab</button>
       <%end%>
     </li>
   </ul>
