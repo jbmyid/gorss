@@ -1,5 +1,12 @@
 <%= javascript_include_tag "coin-slider.min" %>
 <%= stylesheet_link_tag "coin-slider-styles", :media => "all" %>
+<%= content_for :rel_tag do %>
+  <meta property="og:title" content= "<%= page_title %>" />
+  <meta property="og:image" content="<%= "http://"+request.host_with_port+"/images/gorsslogo.png" %>" />
+  <meta property="og:url" content="<%= "http://"+request.host_with_port %>" />
+  <meta property="og:description" content="Centralize all news and updates at one place. Colurize your update types with your favourite colours." />
+  <link rel="image_src" href="<%= "http://"+request.host_with_port+"/images/gorsslogo.png" %>" />
+<% end %>
 <style type="text/css">
   body{background: black;}
 </style>
@@ -29,13 +36,7 @@
       <p><%= link_to "Sign in", new_user_session_path %> to customize your dashboard. </p>
     </div> -->
   </div>
-  <%= content_for :rel_tag do %>
-    <meta property="og:title" content= "<%= page_title %>" />
-    <meta property="og:image" content="<%= request.host_with_port+"/images/gorsslogo.png" %>" />
-    <meta property="og:url" content="<%= request.host_with_port %>" />
-    <meta property="og:description" content="Centralize all news and updates at one place. Colurize your update types with your favourite colours." />
-    <link rel="image_src" href="<%= request.host_with_port+"/images/gorsslogo.png" %>" />
-  <% end %>
+  
 
   <div id="feed-container" class="row">
     <div class="rss-feed-block goRssIntro">
