@@ -373,3 +373,18 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .categories_container{
 	min-width: 100%;
 }
+.feeds-opts a{
+	background: none repeat scroll 0 0 #019F02;
+    color: #3EE319;
+    display: block;
+    float: left;
+    height: 20px;
+    margin: auto;
+    padding: 5px 0;
+    vertical-align: middle;
+    width: 50%;
+}
+.feeds-opts a:hover{
+	background: #3EE319;
+    color: #019F02;
+}

@@ -1,4 +1,8 @@
 <div class="side-menu">
+  <div class="feeds-opts">
+	<%= link_to "Manage Feeds", user_feed_urls_path, remote: true %>
+	<%= link_to "Refresh Feeds", generate_all_feeds_user_feed_urls_path, remote: true %>
+  </div>
   <h4>Subscribed Rss</h4>
   <ul class="win8-menu subscribed-rss">
     <% @feed_urls.each do |u| %>
