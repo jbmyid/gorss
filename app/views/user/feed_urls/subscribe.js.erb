@@ -6,4 +6,8 @@ page = 1;
 html = "<%= j(render 'side_menu_feed_url', feed_url: @feed_url) %>";
 $(".side-menu .subscribed-rss").append(html);
 add_item($(".side-menu .feed-url-<%= @feed_url.id %>"));
+html = "<%= j(render 'feed_urls', feed_urls: @feed_urls) %>"
+$(".popup .content").html(html);
+show_popup();
+$(".bottom-loader").hide();
 apply_color_picker()

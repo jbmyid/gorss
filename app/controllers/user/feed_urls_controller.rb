@@ -20,6 +20,7 @@ class User::FeedUrlsController < User::BaseController
 
   def subscribe
     current_user.subscribe(@feed_url)
+    @feed_urls = FeedUrl.all #.page(params[:page]).per(10)
     respond_to do |format|
      format.html{redirect_to user_dashboard_index_path}
      format.js do 
