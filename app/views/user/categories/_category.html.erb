@@ -4,7 +4,7 @@
     <i class="icon-remove-circle"></i>
   <%end%>
   <h5 style="color: <%=category_dark(category)%>"><%= category.name %></h5>
-  <ul id="category_ul_<%= category.id %>" >
+  <ul id="category_ul_<%= category.id %>" class="tabs_ul" "data-catid"="<%= category.id %>">
     <% category.tabs.each do |t| %>
       <%= render t, category: category %>
     <% end %>

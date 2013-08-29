@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui-1.10.3.custom.min
 //= require twitter/bootstrap
 //= require jquery.masonry
 //= require jquery-ui-1.10.2.custom.min
+//= require jquery.center
+//= require colorpicker
 //= require common
-//= require_tree .

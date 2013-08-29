@@ -61,7 +61,7 @@
                     <li> <%= link_to "Submit Rss Url", new_user_feed_url_path, remote: true %></li>
                     <li> <%= link_to "Manage Feeds", user_feed_urls_path, remote: true %></li>
                     <li> <%= link_to "Refresh Feeds", generate_all_feeds_user_feed_urls_path, remote: true %> </li>
-                    <!-- <li> <%= link_to "Tabs", user_tabs_path %> </li> -->
+                    <li> <%= link_to "Tabs", user_tabs_path %> </li>
                     <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
                   </ul>
                 <% else%>

@@ -1,0 +1,17 @@
+<div id="feed-container" class="categories_container">
+<div class="rss-feed-block tab-cat-block">
+  <ul>
+    <li>
+      <span>Add New Tab</span>
+      <%= form_for [:user, Tab.new], remote: true, html: {class: "tab_form new_form"} do |tf| %>
+        <%= tf.text_field :name , placeholder: "Enter name", value: params[:title]%>
+        <%= tf.text_field :url, placeholder: "Enter url", value: params[:url] %>
+        <%= tf.select :category_id, @categories.map{|c|[c.name, c.id]}%>
+        <%= hidden_field_tag :import, value: true %>
+        <button class="btn" type="button">Add Tab</button>
+      <%end%>
+    </li>
+  </ul>
+  <hr>
+</div>
+</div>

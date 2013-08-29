@@ -1,0 +1,5 @@
+$("#tab_<%=@tab.id%>").remove()
+html = "<%= j(render @tab) %>";
+$("#category_ul_<%= @tab.category_id %>").append(html);
+apply_dragable_tabs()
+$('#feed-container').masonry('reload');

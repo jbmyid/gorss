@@ -88,6 +88,22 @@ function apply_color_picker(){
   })
 }
 
+function apply_dragable_tabs(){
+  $(".tab_li").draggable({appendTo: "body",
+      helper: "clone"})
+    $(".tab-cat-block" ).droppable({
+      drop: function( event, ui ) {
+        id = $(event.target).attr("id").split("_")
+        id = id[id.length-1]
+        $.ajax({
+          url: ui.draggable.data("set-category-path"),
+          data: {category_id: id},
+          dataType: "script"
+        })
+      }
+    })
+}
+
 
 $(function(){
 

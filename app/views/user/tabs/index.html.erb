@@ -12,7 +12,17 @@
           <button class="btn" type="button">Create</button>
         <% end %>
       </li>
-      
+      <li>
+        <span>Drag BooMIt to Bookmark Bar</span>
+        <a href="javascript:(function () { 
+  var jsCode = document.createElement('script'); 
+  jsCode.setAttribute('src', '<%= "http://"+request.host_with_port+"/assets/bookmarklet.js" %>');            
+  document.body.appendChild(jsCode); 
+ }());
+" title="Drag link to Bookmark bar">
+          BooMIt
+        </a>
+      </li>
     </ul>
     <hr>
   </div>
@@ -22,5 +32,6 @@
 <script type="text/javascript">
   $(function(){
     apply_masonry();
+    apply_dragable_tabs()
   })
 </script>

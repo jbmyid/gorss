@@ -1,7 +1,7 @@
 <% category ||=  tab.category %>
 
-<li id="tab_<%=tab.id%>" style="background: <%= category_dark(category) %>">
-  <span><%= tab.name %></span>
+<li id="tab_<%=tab.id%>" style="background: <%= category_dark(category) %>" class="tab_li" data-id="<%= tab.id %>" data-set-category-path="<%= set_category_user_tab_path(tab) %>">
+  <span title="<%= tab.name %>"><%= truncate(tab.name) %></span>
   <%= link_to [:user,tab], method: "delete", remote: true, title: "Remove Tab", style: "color: #{category_bg(category)}" do %>
     <i class="icon-remove-circle"></i>
   <%end%>

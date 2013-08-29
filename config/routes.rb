@@ -39,7 +39,11 @@ GoRss::Application.routes.draw do
         get :recolor
       end
     end
-    resources :tabs
+    resources :tabs do
+      member do
+        get :set_category
+      end
+    end
   end
 
   get "home/index"
