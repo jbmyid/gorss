@@ -50,6 +50,7 @@ class FeedUrl < ActiveRecord::Base
   def self.generate_all_feeds
     objs = []
     urls = FeedUrl.where("status=?",STATUSES[:active])
+    Feed.order("created_at ASC").limit(2000).destroy_all if Feed.count>7000
     urls.each do |u|
       feed = RssParser::RssFeed.parse_rss_url(u.url)
       feed.entries.each do |e|
