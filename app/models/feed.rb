@@ -26,7 +26,11 @@ class Feed < ActiveRecord::Base
   end
 
   def get_color(user=nil)
-    user ? feed_url.user_feed_url.where("user_id=?", user.id).last.color : color
+    if user.try(:user?)
+      feed_url.user_feed_url.where("user_id=?", user.id).last.color
+    else
+      feed_url.user_feed_url.where("user_id=?", Admin.last.id).last.color
+    end
   end
 
   private

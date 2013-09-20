@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_filter :check_current_user
   # layout :false
   def index
-    @feeds = Feed.includes(:feed_url).order("created_at DESC").page(params[:page]).per(20)
+    # @feeds = Feed.includes(:feed_url).order("created_at DESC").page(params[:page]).per(20)
     @feeds = Admin.last.subscribed_feeds.order("created_at DESC").page(params[:page]).per(20)
     
     respond_to do |format|
