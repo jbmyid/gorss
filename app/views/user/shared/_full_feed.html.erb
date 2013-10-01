@@ -11,7 +11,7 @@
 				<div class="feed-image" >
 					<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
 					<div class="image-loading" style="display:block">
-						<%= image_tag "loading.gif" %>
+						<%#= image_tag "loading.gif" %>
 					</div>
 				</div>
 
@@ -30,7 +30,7 @@
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(feed_url(feed)) %>" target="_blank">
 				  <%= image_tag "facebook.png" %>
 				</a>
-			</div>	
+			</div>
 		</div>
 
 	</div>
