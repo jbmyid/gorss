@@ -48,6 +48,7 @@ function add_item(item)
 
 function show_popup()
 {
+  $(".popup ul.win8-menu li").show()
   $(".popup").show().animate({left:0}, function(){
     show_menu_item($(".popup ul.win8-menu li:first"));
   })
@@ -153,7 +154,7 @@ $(function(){
     $(this).closest(".center-popup").fadeOut(function(){$(this).remove();});
   })
 
-  
+
   apply_color_picker()
   $(document).on("click", ".fullPopup .back", function(){
     $(this).closest(".fullPopup").animate({left: "-100%"}, 200, function(){
