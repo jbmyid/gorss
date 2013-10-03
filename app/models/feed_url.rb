@@ -6,7 +6,7 @@ class FeedUrl < ActiveRecord::Base
   validates :url, uniqueness: true, presence: true, format: /http?:\/\/[\S]+/
   validate :title, presence: true
   # validates :status, inclusion: {in: STATUSES.map{|i,v| v}}
-  
+
   before_validation :parse_rss
   # validate :parsable?
 
@@ -15,9 +15,9 @@ class FeedUrl < ActiveRecord::Base
   has_many :users, through: :user_feed_url
 
   STATUSES.each do |method_name, value|
-		define_method method_name.to_s+"?" do 
+		define_method method_name.to_s+"?" do
 			status == value
-		end  	
+		end
   end
 
 
@@ -49,7 +49,7 @@ class FeedUrl < ActiveRecord::Base
 
   def self.generate_all_feeds
     objs = []
-    urls = FeedUrl.where("status=?",STATUSES[:active])
+    urls = FeedUrl.all#where("status=?",STATUSES[:active])
     Feed.order("created_at ASC").limit(2000).destroy_all if Feed.count>7000
     urls.each do |u|
       feed = RssParser::RssFeed.parse_rss_url(u.url)
@@ -75,7 +75,7 @@ class FeedUrl < ActiveRecord::Base
   	else
   		self.title = feed.title
   		self.description = feed.description
-  		self.status = STATUSES[:pending]
+  		self.status = STATUSES[:active]
   	end
   end
 

@@ -4,6 +4,7 @@ class User < Person
   has_many :feed_urls, through: :user_feed_url
   has_many :categories
   has_many :tabs
+  after_create :subscribe_all_feeds
 
   def subscribe(feed_url)
     sub =user_feed_url.build(feed_url_id: feed_url.id)
@@ -60,5 +61,9 @@ class User < Person
                            )
     end
     user
+  end
+
+  def subscribe_all_feeds
+    FeedUrl.all.each{subscribe(u)}
   end
 end
