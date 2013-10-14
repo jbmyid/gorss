@@ -64,6 +64,6 @@ class User < Person
   end
 
   def subscribe_all_feeds
-    FeedUrl.all.each{subscribe(u)}
+    FeedUrl.all.each{|u|subscribe(u)}
   end
 end
