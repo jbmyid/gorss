@@ -1,8 +1,13 @@
 <div class="row" align="center">
-  <h2>Send Reset Password Link</h2>
   <div class="signup-box">
     <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
         <div class="control-group">
+          <div class="controls">
+            <h2>Send Reset Password Link</h2>
+          </div>
+        </div>
+        <div class="control-group">
+
           <%= f.label :email, :class => 'control-label' %>
           <div class="controls">
             <%= f.text_field :email, :class => 'text_area', placeholder: "Enter email address here" %>
@@ -12,7 +17,8 @@
       
         <div class="control-group">
           <div class="controls">
-            <%= f.submit "Send", :class => 'btn btn-primary pull-left' %>
+            <%= f.submit "Send", :class => 'btn btn-primary pull-left' %><br></br>
+            <%= render "/users/shared/links"%>
           </div>
         </div>
         

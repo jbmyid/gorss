@@ -158,7 +158,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 }
 .signup-box
 {
-	margin-top: 50px;
+	margin-top: 150px;
 	display: block;
 	color: black;
 	box-shadow: 1px 1px 3px #86D8F9;
@@ -387,4 +387,7 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .feeds-opts a:hover{
 	background: #3EE319;
     color: #019F02;
+}
+.signup-box a{
+	color: black;
 }
