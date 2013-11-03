@@ -39,7 +39,7 @@ GoRss::Application.routes.draw do
         get :recolor
       end
     end
-    resources :tabs do
+    resources :tabs, path: "bookmarks" do
       member do
         get :set_category
       end

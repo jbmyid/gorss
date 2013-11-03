@@ -5,18 +5,22 @@
 				<strong>Close</strong>
 			</div>
 			<% entry = feed.data %>
-			<span class="published_date"><%= date_format entry.published %></span>
+			
 
-			<% if feed.media_image %>
+			
 				<div class="feed-image" >
-					<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
+					<% if feed.media_image %>
+						<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
+					<% else %>
+						<img src="/images/gorsslogo.png" class: "f-img"/>
+					<% end %>
 					<div class="image-loading" style="display:block">
 						<%#= image_tag "loading.gif" %>
 					</div>
 				</div>
 
-			<% end %>
 			<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{full_feed_heading_color(feed)}"%></h5>
+			<span class="published_date"><%= date_format entry.published %></span>
 			<p> <%= Sanitize.clean entry.description %></p>
 			<hr>
 			<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
