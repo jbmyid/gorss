@@ -16,6 +16,10 @@ module ApplicationHelper
 		end
 	end
 
+  def rand_color
+    ["#3EE319", "#3276C9", "#71AD00", "#CC1E1F"].sample
+  end
+
 	# def display_errors(obj, *options)
  #    return "" unless obj || obj.errors.present?
  #    opts = options.last || {}

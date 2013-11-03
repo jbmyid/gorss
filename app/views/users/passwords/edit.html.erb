@@ -3,7 +3,7 @@
 <%#= render "devise/shared/links" %>
 
 <div class="row" align="center">
-  <div class="signup-box">
+  <div class="signup-box"  style= "background: <%= rand_color%>;">
     <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put ,:class => 'form-horizontal' }) do |f| %>
         <div class="control-group">
           <div class="controls">
