@@ -4,10 +4,7 @@
 			<div class="back" style= "background-color: <%= full_feed_heading_color(feed) %>">
 				<strong>Close</strong>
 			</div>
-			<% entry = feed.data %>
-			
-
-			
+			<% entry = feed.data %>			
 				<div class="feed-image" >
 					<% if feed.media_image %>
 						<%= image_tag image_url(feed.media_image), style:"display:none", class: "f-img"%>
@@ -21,7 +18,7 @@
 
 			<h5><%= link_to entry.title, entry.link, target: "_blank", style: "color: #{full_feed_heading_color(feed)}"%></h5>
 			<span class="published_date"><%= date_format entry.published %></span>
-			<p> <%= Sanitize.clean entry.description %></p>
+			<p> <%= raw(Sanitize.clean entry.description) %></p>
 			<hr>
 			<span class="url-title"><%= (feed.try(:url_title) rescue nil) || feed.feed_url_title %></span>
 			<div class="feed-category">
