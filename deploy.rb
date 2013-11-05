@@ -1,5 +1,8 @@
 require 'bundler/capistrano'
 require 'capistrano_colors'
+set :stages, %w[staging production]
+set :default_stage, 'production'
+
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -11,8 +14,6 @@ set :repository,  "git@heroku.com:gorss.git"
 set :branch, "master"
 set :deploy_to, "/var/www/gorss"
 set :keep_releases, 3
-set :stages, %w[staging production]
-set :default_stage, 'production'
 
 
 set :scm, :git
