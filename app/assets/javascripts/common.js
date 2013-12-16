@@ -129,6 +129,8 @@ $(function(){
   $(".side-menu").click(function(){
     if($(this).css("right")!="0px")
     {
+      $("ul.win8-menu li").stop().css({left: "-290px"})
+
       $(this).stop().animate({right: "0px"},200,function(){
         show_menu_item($("ul.win8-menu li:first"))
       })
