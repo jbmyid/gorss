@@ -392,3 +392,9 @@ ul.win8-menu > li a{padding: 3px; text-decoration: none;}
 .signup-box a{
 	color: black;
 }
+.left-nav{
+	border-radius: 0 15px 15px 0; 
+}
+.right-nav{
+	border-radius: 15px 0 0 15px; 
+}

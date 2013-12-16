@@ -125,7 +125,9 @@ $(function(){
   //     // hide_menu_item($("ul.win8-menu li:last"))
   //   })
   // })
-
+  $(".dropdown-menu li").click(function(){
+    $(this).closest(".btn-group").removeClass("open")
+  })
   $(".side-menu").click(function(){
     if($(this).css("right")!="0px")
     {
@@ -139,7 +141,6 @@ $(function(){
     {
       $(this).stop().animate({right: "-290px"},150, function(){
       $("ul.win8-menu li").css({left: "-290px"})
-      // hide_menu_item($("ul.win8-menu li:last"))
     })
     }
   })
