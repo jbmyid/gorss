@@ -1,48 +1,22 @@
-<div id="feed-container" class: "row">
-	<%= render "user/shared/feeds", feeds: @feeds %>
+<div id="feed-container" class= "row">
+	<% if @feeds.any? %>
+		<%= render "user/shared/feeds", feeds: @feeds %>
+	<% else %>
+		<div class="jumbotron">
+		  <h1>Hello!</h1>
+		  <p>Welcome to goRSS. Thanks for giving your attension to the app. Get started with subscribing RSS feeds.</p>
+		  <p>
+		  	<%= link_to "Subscribe RSS Feed", user_feed_urls_path, remote: true, class: "btn btn-primary btn-lg" ,role:"button"%>
+		  </p>
+		</div>
+
+	<% end %>
 </div>
 <%= render "side_menu" %>
 <%= render "shared/popup", content: ""%>
 <script type="text/javascript">
-	var page = 1;
 	$(function(){
-		apply_masonry();
-		//loading 
-		
-	  var loading = false,
-	  finish = false;
-
-	  function nearBottomOfPage() {
-	    return $(window).scrollTop() > $(document).height() - $(window).height() - 50;
-	  }
-
-	  function finish() {
-	    finish = true;
-	  }
-
-	  $(window).scroll(function(){
-	    if (loading) {
-	      return;
-	    }
-
-	    if(nearBottomOfPage() && !finish) {
-	      loading=true;
-	      page++;
-	      $.ajax({
-	        url: '?page=' + page,
-	        type: 'get',
-	        dataType: 'script',
-	        beforeSend:  function(){
-						$(".bottom-loader").show();	        	
-	        },
-	        success: function() {
-	        	$(".bottom-loader").hide();
-	        	$('#feed-container').masonry('reload');
-	          loading=false;
-	        }
-	      });
-	    }
-	  });
+		$infinet_loader = new InfiniteLoader();
 	})
 </script>
 <style type="text/css">

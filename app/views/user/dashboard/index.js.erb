@@ -1,3 +1,5 @@
-html = "<%= j(render 'user/shared/feeds', feeds: @feeds) %>";
-$("#feed-container").append( html );
-image_loading_callback();
+<% if @feeds.any? %>
+	html = "<%= j(render 'user/shared/feeds', feeds: @feeds) %>";
+	$("#feed-container").append( html );
+	image_loading_callback();
+<% end %>

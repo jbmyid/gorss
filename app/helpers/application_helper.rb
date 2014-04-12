@@ -1,6 +1,17 @@
 module ApplicationHelper
   require "feed_color"
 
+  def controller_stylesheet
+    css =  params[:controller]
+    Rails.application.assets.find_asset(params[:controller]+".css") || Rails.application.assets.find_asset(params[:controller]+".sass") ? css : nil
+  end
+
+  #Note: includes the controller specific javascript/coffeescript file in that controller.
+  def controller_js
+    js =  params[:controller]
+    Rails.application.assets.find_asset(params[:controller]+".js") || Rails.application.assets.find_asset(params[:controller]+".js.coffee") ? js : nil
+  end
+
   def page_title
     @title || "GoRss - Central Portal For Latest updates"
   end

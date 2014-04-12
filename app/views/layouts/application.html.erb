@@ -18,6 +18,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag controller_stylesheet if controller_stylesheet %>
+    <%= javascript_include_tag controller_js if controller_js %>
     
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
